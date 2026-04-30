@@ -22,7 +22,7 @@ export function HeroSection() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="anim-fade-up">
+          <div>
             <div className="inline-flex items-center gap-1.5 sm:gap-2 mb-3 sm:mb-6 px-3 py-1 sm:px-4 sm:py-2 border border-[#B89B72]/30 bg-[#B89B72]/5 backdrop-blur-sm text-[#B89B72] text-[10px] sm:text-xs tracking-wide">
               <Star className="h-2.5 w-2.5 sm:h-3 sm:w-3 fill-[#B89B72]" />
               ADVOCACIA ESPECIALIZADA

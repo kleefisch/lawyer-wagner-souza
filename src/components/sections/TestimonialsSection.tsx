@@ -257,16 +257,18 @@ export function TestimonialsSection() {
               <ChevronLeft className="h-5 w-5" aria-hidden="true" />
             </button>
 
-            <div className="flex items-center gap-2" role="tablist" aria-label="Páginas de depoimentos">
+            <div className="flex items-center" role="tablist" aria-label="Páginas de depoimentos">
               {[...Array(totalPages)].map((_, i) => (
                 <button
                   key={i}
                   role="tab"
                   onClick={() => setTestimonialPage(i)}
-                  className={`w-2 h-2 rounded-full transition-all ${i === testimonialPage ? "bg-[#B89B72] w-8" : "bg-[#B89B72]/30"}`}
+                  className={`flex items-center justify-center h-6 rounded-full transition-all ${i === testimonialPage ? "w-10" : "w-6"}`}
                   aria-label={`Ir para página ${i + 1} de ${totalPages}`}
                   aria-selected={i === testimonialPage}
-                />
+                >
+                  <span className={`block rounded-full transition-all ${i === testimonialPage ? "h-2 w-8 bg-[#B89B72]" : "w-2 h-2 bg-[#B89B72]/30"}`} />
+                </button>
               ))}
             </div>
 

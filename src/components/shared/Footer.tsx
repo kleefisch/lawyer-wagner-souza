@@ -54,33 +54,37 @@ export function Footer({ setActiveModal }: FooterProps) {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Falar no WhatsApp"
                 className="w-10 h-10 rounded-full border border-[#F8F6F0]/20 flex items-center justify-center hover:border-[#25D366] hover:bg-[#25D366]/10 transition-all"
               >
-                <FaWhatsapp className="w-5 h-5 text-[#F8F6F0]" />
+                <FaWhatsapp className="w-5 h-5 text-[#F8F6F0]" aria-hidden="true" />
               </a>
               <a
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
                 className="w-10 h-10 rounded-full border border-[#F8F6F0]/20 flex items-center justify-center hover:border-[#B89B72] hover:bg-[#B89B72]/10 transition-all"
               >
-                <Facebook className="w-4 h-4 text-[#F8F6F0]" />
+                <Facebook className="w-4 h-4 text-[#F8F6F0]" aria-hidden="true" />
               </a>
               <a
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Twitter"
                 className="w-10 h-10 rounded-full border border-[#F8F6F0]/20 flex items-center justify-center hover:border-[#B89B72] hover:bg-[#B89B72]/10 transition-all"
               >
-                <Twitter className="w-4 h-4 text-[#F8F6F0]" />
+                <Twitter className="w-4 h-4 text-[#F8F6F0]" aria-hidden="true" />
               </a>
               <a
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
                 className="w-10 h-10 rounded-full border border-[#F8F6F0]/20 flex items-center justify-center hover:border-[#B89B72] hover:bg-[#B89B72]/10 transition-all"
               >
-                <Instagram className="w-4 h-4 text-[#F8F6F0]" />
+                <Instagram className="w-4 h-4 text-[#F8F6F0]" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -201,26 +205,26 @@ export function Footer({ setActiveModal }: FooterProps) {
         <div className="border-t border-[rgba(248,246,240,0.1)] pt-8">
           <div className="flex flex-col gap-4">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-[#64748B] tracking-tight">
+              <p className="text-sm text-[#94A3B8] tracking-tight">
                 © 2026 Wagner Souza | Advocacia | {OAB_NUMBER}. Todos os
                 direitos reservados.
               </p>
               <div className="flex flex-wrap justify-center gap-4 md:gap-6">
                 <button
                   onClick={() => setActiveModal("privacy")}
-                  className="text-sm text-[#64748B] hover:text-[#B89B72] transition-colors"
+                  className="text-sm text-[#94A3B8] hover:text-[#B89B72] transition-colors"
                 >
                   Política de Privacidade
                 </button>
                 <button
                   onClick={() => setActiveModal("terms")}
-                  className="text-sm text-[#64748B] hover:text-[#B89B72] transition-colors"
+                  className="text-sm text-[#94A3B8] hover:text-[#B89B72] transition-colors"
                 >
                   Termos de Uso
                 </button>
                 <button
                   onClick={() => setActiveModal("cookies")}
-                  className="text-sm text-[#64748B] hover:text-[#B89B72] transition-colors"
+                  className="text-sm text-[#94A3B8] hover:text-[#B89B72] transition-colors"
                 >
                   Política de Cookies
                 </button>
@@ -231,11 +235,11 @@ export function Footer({ setActiveModal }: FooterProps) {
                 href="https://kleelabs.tech"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-sm text-[#64748B] tracking-tight group transition-colors"
+                className="flex items-center gap-1.5 text-sm text-[#94A3B8] tracking-tight group transition-colors"
               >
                 <span>Desenvolvido por</span>
                 <span className="flex items-center gap-1 transition-colors">
-                  <Clover className="w-4 h-4 text-[#64748B] group-hover:text-[#25D366] transition-colors" />
+                  <Clover className="w-4 h-4 text-[#94A3B8] group-hover:text-[#25D366] transition-colors" />
                   <span
                     className="group-hover:text-[#25D366] transition-colors"
                     style={{ fontWeight: 400 }}
