@@ -73,42 +73,41 @@ export function LegalModals({ activeModal, setActiveModal }: LegalModalsProps) {
                 {activeModal === "privacy" && (
                   <div className="space-y-6">
                     <p className="lead text-lg text-[#0F172A] font-medium">
-                      Compromisso com a sua Privacidade
+                      Política de Privacidade e Proteção de Dados
                     </p>
                     <p>
-                      Na Wagner Souza Advocacia, a proteção e confidencialidade dos dados dos nossos clientes são
-                      prioridades absolutas. Esta declaração descreve como coletamos, usamos, processamos e protegemos as
-                      suas informações pessoais em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei
-                      nº 13.709/2018).
+                      A <strong>Wagner Souza Advocacia</strong> preza pelo sigilo, confidencialidade e proteção absoluta dos dados de nossos clientes. Esta Política de Privacidade foi elaborada em estrita observância à Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018), bem como aos preceitos do Código de Ética e Disciplina da Ordem dos Advogados do Brasil (OAB).
                     </p>
                     
                     <h4 className="text-lg text-[#0F172A] mt-8 mb-3 font-semibold border-l-2 border-[#B89B72] pl-3">
-                      1. Coleta de Informações
+                      1. Princípios e Sigilo Profissional
                     </h4>
                     <p>
-                      Coletamos informações essenciais para a prestação dos nossos serviços jurídicos. Isso pode incluir:
+                      A relação advogado-cliente é baseada na mais absoluta confiança. Todo e qualquer dado compartilhado conosco é protegido não apenas pelas normas da LGPD, mas também pelo rigoroso sigilo profissional garantido pela legislação advocatícia brasileira, não sendo divulgado a terceiros exceto sob autorização expressa ou exigência legal estrita.
+                    </p>
+
+                    <h4 className="text-lg text-[#0F172A] mt-8 mb-3 font-semibold border-l-2 border-[#B89B72] pl-3">
+                      2. Coleta e Finalidade do Tratamento de Dados
+                    </h4>
+                    <p>
+                      Coletamos e tratamos dados pessoais exclusivamente para finalidades legítimas, específicas e informadas, destacando-se:
                     </p>
                     <ul className="list-disc pl-5 space-y-2 text-[#475569]">
-                      <li><strong className="text-[#0F172A]">Dados de identificação:</strong> Nome completo, CPF, RG, data de nascimento, estado civil.</li>
-                      <li><strong className="text-[#0F172A]">Dados de contato:</strong> Endereço de e-mail, número de telefone fixo ou celular, endereço residencial e comercial.</li>
-                      <li><strong className="text-[#0F172A]">Informações sensíveis:</strong> Dados relacionados a processos em andamento, informações financeiras, histórico previdenciário e criminal estritamente necessários para a atuação jurídica.</li>
-                      <li><strong className="text-[#0F172A]">Dados de navegação:</strong> Informações coletadas automaticamente durante a visita ao nosso site, como endereços IP e comportamento de navegação.</li>
+                      <li><strong className="text-[#0F172A]">Dados de Qualificação e Contato:</strong> Nome, CPF, RG, endereço, e-mail e telefone, para formalização de procurações, contratos de honorários e manutenção de comunicação.</li>
+                      <li><strong className="text-[#0F172A]">Dados Sensíveis e Processuais:</strong> Informações financeiras, histórico médico, previdenciário e criminal, essenciais para a análise de viabilidade, propositura de demandas judiciais e defesas administrativas.</li>
+                      <li><strong className="text-[#0F172A]">Dados de Navegação:</strong> Informações anonimizadas de interação com nosso site (via cookies), visando melhorar a experiência do usuário e mensurar estatísticas de acesso.</li>
                     </ul>
 
                     <h4 className="text-lg text-[#0F172A] mt-8 mb-3 font-semibold border-l-2 border-[#B89B72] pl-3">
-                      2. Uso das Informações
+                      3. Direitos do Titular (Art. 18 da LGPD)
                     </h4>
-                    <p>Os dados coletados são utilizados para:</p>
-                    <ul className="list-disc pl-5 space-y-2 text-[#475569]">
-                      <li>Viabilizar a análise, acompanhamento e condução de processos judiciais e consultorias preventivas.</li>
-                      <li>Estabelecer comunicação efetiva referente ao andamento dos serviços contratados.</li>
-                      <li>Cumprir com obrigações legais, regulatórias (especialmente as determinadas pela OAB) e decisões judiciais.</li>
-                      <li>Aperfeiçoar nossos canais de atendimento e compreender como os usuários interagem com nosso ambiente digital.</li>
-                    </ul>
+                    <p>
+                      Você possui controle sobre seus dados. Garantimos o exercício dos direitos de: confirmação da existência de tratamento, acesso, correção de dados incompletos ou desatualizados, anonimização, bloqueio ou eliminação de dados desnecessários, e a revogação do consentimento, resguardados os prazos prescricionais de armazenamento legal e a inviolabilidade inerente à atuação jurídica.
+                    </p>
                     
                     <div className="bg-[#F8F6F0] p-4 border border-[#B89B72]/20 mt-6 rounded-sm">
-                      <p className="text-sm font-medium text-[#B89B72] mb-1">Dúvidas?</p>
-                      <p className="text-sm">Para questões sobre seus dados ou exercício dos seus direitos (acesso, correção, portabilidade ou exclusão), contate nosso DPO através do e-mail <a href="mailto:privacidade@wagneradv.com.br" className="font-medium text-[#B89B72]">privacidade@wagneradv.com.br</a>.</p>
+                      <p className="text-sm font-medium text-[#B89B72] mb-1">Contato do Encarregado de Dados (DPO)</p>
+                      <p className="text-sm">Para exercer seus direitos ou tirar dúvidas sobre esta política, entre em contato diretamente através do e-mail oficial: <a href="mailto:wapsouza@gmail.com" className="font-medium text-[#B89B72]">wapsouza@gmail.com</a>.</p>
                     </div>
                   </div>
                 )}
@@ -116,35 +115,38 @@ export function LegalModals({ activeModal, setActiveModal }: LegalModalsProps) {
                 {activeModal === "terms" && (
                   <div className="space-y-6">
                     <p className="lead text-lg text-[#0F172A] font-medium">
-                      Termos e Condições de Uso do Site
+                      Termos e Condições de Uso
                     </p>
                     <p>
-                      Bem-vindo ao site da Wagner Souza Advocacia. Ao acessar e utilizar este
-                      ambiente digital, você adere aos presentes termos e condições. Recomendamos a
-                      leitura atenta das diretrizes abaixo antes de prosseguir com a navegação ou o envio de informações.
+                      O acesso e a navegação neste site, operado pela <strong>Wagner Souza Advocacia</strong>, implicam na aceitação e compreensão dos Termos de Uso aqui descritos.
                     </p>
 
                     <h4 className="text-lg text-[#0F172A] mt-8 mb-3 font-semibold border-l-2 border-[#B89B72] pl-3">
-                      1. Natureza do Conteúdo
+                      1. Natureza Informativa e Publicidade OAB
                     </h4>
                     <p>
-                      O conteúdo divulgado neste site, incluindo artigos, notícias, decisões judiciais comentadas, 
-                      e-books e informativos tem finalidade exclusivamente <strong>informativa e institucional</strong>.
+                      Este ambiente digital tem propósito estritamente institucional e informativo, obedecendo às diretrizes do Provimento nº 205/2021 e do Código de Ética e Disciplina da OAB, que regulamentam o marketing jurídico. Nenhum conteúdo publicado, artigo ou explicação constitui aconselhamento legal, parecer jurídico vinculativo ou captação de clientela mercantilista.
                     </p>
-                    <ul className="list-disc pl-5 space-y-2 text-[#475569]">
-                      <li>Nenhum material disponibilizado substitui o aconselhamento legal personalizado.</li>
-                      <li>A leitura ou envio de consultas via formulário não caracteriza o estabelecimento de uma relação advogado-cliente formal.</li>
-                      <li>A atuação representativa demanda firmamento contratual específico.</li>
-                    </ul>
 
                     <h4 className="text-lg text-[#0F172A] mt-8 mb-3 font-semibold border-l-2 border-[#B89B72] pl-3">
-                      2. Propriedade Intelectual
+                      2. Ausência de Vínculo Advocatício Inicial
                     </h4>
                     <p>
-                      Todo o material presente nesta plataforma — textos, layout corporativo, logotipo, identidade gráfica, imagens, código-fonte e compilações — é de propriedade da Wagner Souza Advocacia ou está licenciado para seu uso regular.
+                      O mero contato via formulários, e-mail ou WhatsApp corporativo, bem como a leitura de materiais do site, não estabelece uma relação formal advogado-cliente. A contratação dos serviços jurídicos está condicionada à análise preliminar do caso, aceitação mútua e assinatura de contrato específico de honorários e procuração.
                     </p>
+
+                    <h4 className="text-lg text-[#0F172A] mt-8 mb-3 font-semibold border-l-2 border-[#B89B72] pl-3">
+                      3. Propriedade Intelectual e Direitos Autorais
+                    </h4>
                     <p>
-                      A reprodução, cópia, distribuição ou modificação não autorizada constitui infração aos Direitos Autorais (Lei 9.610/98), sujeitando o infrator às sanções legais.
+                      Todos os elementos visuais, textos, artigos e arquitetura do site são protegidos pela Lei de Direitos Autorais (Lei nº 9.610/1998). É terminantemente proibida a cópia, reprodução, distribuição ou uso comercial do conteúdo sem a devida citação de fonte e autorização prévia.
+                    </p>
+
+                    <h4 className="text-lg text-[#0F172A] mt-8 mb-3 font-semibold border-l-2 border-[#B89B72] pl-3">
+                      4. Contato
+                    </h4>
+                    <p>
+                      Para dirimir quaisquer dúvidas sobre estes termos ou para agendamento de consultas formais, contate nossa equipe pelo e-mail <strong><a href="mailto:wapsouza@gmail.com" className="text-[#B89B72]">wapsouza@gmail.com</a></strong> ou pelos canais de atendimento indicados no site.
                     </p>
                   </div>
                 )}
@@ -155,32 +157,38 @@ export function LegalModals({ activeModal, setActiveModal }: LegalModalsProps) {
                       Política e Gerenciamento de Cookies
                     </p>
                     <p>
-                      Esta declaração complementa nossa Política de Privacidade para explicar o que
-                      são cookies, como a Wagner Souza Advocacia os utiliza em seu portal, os tipos envolvidos e como você pode controlá-los.
+                      A fim de proporcionar uma navegação fluida, segura e personalizada, utilizamos cookies tecnológicos em nosso site. Esta política, integrada à nossa Política de Privacidade, segue os padrões exigidos pela LGPD (Lei nº 13.709/2018) e opera em conformidade com o <em>Google Consent Mode v2</em>.
                     </p>
                     
                     <h4 className="text-lg text-[#0F172A] mt-8 mb-3 font-semibold border-l-2 border-[#B89B72] pl-3">
                       1. O que são Cookies?
                     </h4>
                     <p>
-                      Cookies são pequenos fragmentos de texto gerados por um site e armazenados pelo seu navegador no computador, tablet, ou smartphone. Eles guardam histórico de navegação e preferências, para que você não precise reconfigurar o acesso a cada nova visita, além de viabilizarem o carregamento e eficiência da página.
+                      São pequenos arquivos de texto armazenados localmente no seu dispositivo. Eles não acessam seus arquivos pessoais, servindo apenas para guardar preferências do usuário, otimizar carregamentos e aferir o desempenho da nossa plataforma institucional.
                     </p>
 
                     <h4 className="text-lg text-[#0F172A] mt-8 mb-3 font-semibold border-l-2 border-[#B89B72] pl-3">
-                      2. Categorias de Cookies que Utilizamos
+                      2. Modalidades de Cookies e Gestão de Consentimento
                     </h4>
-                    <p>Nosso ambiente emprega as seguintes variações:</p>
+                    <p>Classificamos nossos cookies nas seguintes frentes, sob as quais você possui total controle através do nosso painel de privacidade:</p>
                     <ul className="list-disc pl-5 space-y-2 text-[#475569]">
                       <li>
-                        <strong className="text-[#0F172A]">Essenciais / Estritamente Necessários:</strong> Fundamentais para que o site desempenhe suas funções básicas operacionais e de segurança. O site não sobrevive ao desligamento destes, portanto, são dispensados de consentimento prévio.
+                        <strong className="text-[#0F172A]">Cookies Estritamente Necessários:</strong> Garantem as funções sistêmicas de segurança e estabilidade. Por serem fundamentais para a existência do site, não podem ser desativados.
                       </li>
                       <li>
-                        <strong className="text-[#0F172A]">Análise e Performance:</strong> Operados por sistemas terceiros confiáveis (como Google Analytics). Aferem de forma anônima a movimentação de usuários (páginas mais vistas, tempo de permanência, origem do tráfego).
+                        <strong className="text-[#0F172A]">Cookies de Analytics (Desempenho):</strong> Auxiliam a contagem de visitas e origem do tráfego (ex: Google Analytics). Funcionam de forma anonimizada e dependem de sua aprovação prévia.
                       </li>
                       <li>
-                        <strong className="text-[#0F172A]">Marketing e Terceiros:</strong> Plataformas de publicidade ou de integração externa podem embutir cookies para traçar o seu perfil de interesses ou engajar plugins (como os balões de WhatsApp embarcados).
+                        <strong className="text-[#0F172A]">Cookies de Marketing:</strong> Empregados para oferecer campanhas publicitárias (Google Ads) mais adequadas aos seus interesses. Nós não comercializamos esses dados, e eles só são ativados caso você consinta ativamente (Opt-in).
                       </li>
                     </ul>
+
+                    <h4 className="text-lg text-[#0F172A] mt-8 mb-3 font-semibold border-l-2 border-[#B89B72] pl-3">
+                      3. Alterações e Contato
+                    </h4>
+                    <p>
+                      Você pode revogar ou ajustar seus consentimentos a qualquer momento pelo botão de configuração de cookies do site ou entrando em contato pelo e-mail <strong><a href="mailto:wapsouza@gmail.com" className="text-[#B89B72]">wapsouza@gmail.com</a></strong>.
+                    </p>
                   </div>
                 )}
               </div>

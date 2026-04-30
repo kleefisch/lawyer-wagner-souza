@@ -16,12 +16,9 @@ export function CookieBanner({ setActiveModal }: CookieBannerProps) {
     analytics: true,
     marketing: true,
   });
-  const [consentGranted, setConsentGranted] = useState(false);
-
   const updateConsent = (prefs: { analytics: boolean, marketing: boolean }) => {
-    if (typeof window !== "undefined" && (window as any).dataLayer) {
-      function gtag(){ (window as any).dataLayer.push(arguments); }
-      gtag('consent', 'update', {
+    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+      (window as any).gtag('consent', 'update', {
         'ad_storage': prefs.marketing ? 'granted' : 'denied',
         'ad_user_data': prefs.marketing ? 'granted' : 'denied',
         'ad_personalization': prefs.marketing ? 'granted' : 'denied',
@@ -38,9 +35,6 @@ export function CookieBanner({ setActiveModal }: CookieBannerProps) {
       const parsed = JSON.parse(consent);
       setCookiePreferences(parsed);
       updateConsent(parsed);
-      if (parsed.analytics || parsed.marketing) {
-        setConsentGranted(true);
-      }
     }
   }, []);
 
@@ -48,16 +42,12 @@ export function CookieBanner({ setActiveModal }: CookieBannerProps) {
     const prefs = { necessary: true, analytics: true, marketing: true };
     localStorage.setItem("cookie_consent", JSON.stringify(prefs));
     setCookiePreferences(prefs);
-    setConsentGranted(true);
     updateConsent(prefs);
     setShowCookieBanner(false);
   };
 
   const handleSavePreferences = () => {
     localStorage.setItem("cookie_consent", JSON.stringify(cookiePreferences));
-    if (cookiePreferences.analytics || cookiePreferences.marketing) {
-      setConsentGranted(true);
-    }
     updateConsent(cookiePreferences);
     setShowCookiePreferences(false);
     setShowCookieBanner(false);
