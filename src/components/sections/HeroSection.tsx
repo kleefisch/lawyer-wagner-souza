@@ -10,7 +10,7 @@ import { trackWhatsAppClick } from "../../lib/analytics";
 
 export function HeroSection() {
   return (
-    <section className="bg-[#0F172A] pt-32 pb-20 lg:pt-40 lg:pb-32 relative overflow-hidden">
+    <section className="bg-[#0F172A] pt-24 sm:pt-28 lg:pt-40 pb-20 lg:pb-32 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-96 h-96 border border-[#B89B72]"></div>
@@ -28,40 +28,40 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 border border-[#B89B72]/30 bg-[#B89B72]/5 backdrop-blur-sm text-[#B89B72] text-xs tracking-wide">
-              <Star className="h-3 w-3 fill-[#B89B72]" />
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 mb-3 sm:mb-6 px-3 py-1 sm:px-4 sm:py-2 border border-[#B89B72]/30 bg-[#B89B72]/5 backdrop-blur-sm text-[#B89B72] text-[10px] sm:text-xs tracking-wide">
+              <Star className="h-2.5 w-2.5 sm:h-3 sm:w-3 fill-[#B89B72]" />
               ADVOCACIA ESPECIALIZADA
             </div>
             <h1
-              className="text-4xl lg:text-6xl tracking-tight mb-6 text-[#F8F6F0]"
+              className="text-4xl lg:text-6xl tracking-tight mb-3 sm:mb-6 text-[#F8F6F0]"
               style={{ fontWeight: 600, lineHeight: "1.1" }}
             >
-              Defesa Jurídica de Alto Padrão em Todo o Brasil
+              Defesa Jurídica de Alto Padrão
             </h1>
             <p
-              className="text-xl lg:text-2xl text-[#B89B72] mb-6"
-              style={{ fontWeight: 500 }}
+              className="text-[#B89B72] mb-6 whitespace-nowrap"
+              style={{ fontWeight: 500, fontSize: "clamp(17px, 4.8vw, 2rem)" }}
             >
               Direito Criminal & Previdenciário
             </p>
-            <p className="text-[15px] lg:text-[17px] text-[#CBD5E1] leading-relaxed mb-8 tracking-tight max-w-xl">
+            <p className="text-[13px] sm:text-[15px] lg:text-[17px] text-[#CBD5E1] leading-relaxed mb-8 tracking-tight max-w-xl">
               Atuação estratégica com sigilo absoluto e expertise técnica.
               Defendemos seus direitos com excelência em todo o território
               nacional, buscando o melhor resultado possível para cada caso.
             </p>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 mb-8 pb-8 border-b border-[#F8F6F0]/10">
-              <div className="flex items-center gap-2 text-sm text-[#94A3B8]">
-                <CheckCircle className="h-4 w-4 text-[#B89B72]" />
+            <div className="flex flex-wrap justify-between sm:justify-start lg:justify-start gap-y-3 sm:gap-x-6 mb-4 sm:mb-8 sm:pb-8 sm:border-b sm:border-[#F8F6F0]/10">
+              <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-[#94A3B8]">
+                <CheckCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#B89B72] shrink-0" />
                 +500 Processos Atuados
               </div>
-              <div className="flex items-center gap-2 text-sm text-[#94A3B8]">
-                <Clock className="h-4 w-4 text-[#B89B72]" />
+              <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-[#94A3B8]">
+                <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#B89B72] shrink-0" />
                 Plantão 24h
               </div>
-              <div className="flex items-center gap-2 text-sm text-[#94A3B8]">
-                <Star className="h-4 w-4 fill-[#B89B72] text-[#B89B72]" />
+              <div className="w-full sm:w-auto flex justify-center sm:justify-start items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-[#94A3B8]">
+                <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-[#B89B72] text-[#B89B72] shrink-0" />
                 98% Clientes Satisfeitos
               </div>
             </div>
@@ -85,10 +85,6 @@ export function HeroSection() {
                 Ver Especialidades
               </a>
             </div>
-            <p className="text-sm text-[#94A3B8] tracking-tight mt-4 flex items-center gap-2">
-              <CheckCircle className="h-4 w-4 text-[#B89B72]" />
-              Atendimento sigiloso em todo o Brasil
-            </p>
           </motion.div>
 
           <motion.div

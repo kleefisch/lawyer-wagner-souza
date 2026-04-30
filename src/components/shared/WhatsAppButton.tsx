@@ -31,7 +31,7 @@ export function WhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackWhatsAppClick("floating_widget")}
-        className="fixed bottom-6 right-6 bg-[#25D366] text-white p-3 rounded-full shadow-2xl hover:bg-[#20BA5A] transition-all hover:scale-110 z-[70] group"
+        className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 bg-[#25D366] text-white p-2 sm:p-3 rounded-full shadow-2xl hover:bg-[#20BA5A] transition-all hover:scale-110 z-[70] group"
         aria-label="Falar no WhatsApp"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -39,10 +39,10 @@ export function WhatsAppButton() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
-        <FaWhatsapp className="h-10 w-10" />
+        <FaWhatsapp className="h-7 w-7 sm:h-10 sm:w-10" />
 
         {/* Pulse effect */}
-        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-0 animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]"></span>
+        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-pulse-subtle"></span>
 
         {/* Tooltip */}
         <span className="pointer-events-none absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-[#0F172A] text-white px-4 py-2 rounded-sm text-sm whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity shadow-xl">
@@ -58,7 +58,7 @@ export function WhatsAppButton() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-28 right-6 w-80 bg-white rounded-2xl shadow-2xl z-[70] overflow-hidden"
+            className="fixed bottom-16 right-3 sm:bottom-28 sm:right-6 w-72 sm:w-80 bg-white rounded-2xl shadow-2xl z-[70] overflow-hidden"
           >
             {/* Header */}
             <div className="bg-white p-4 flex items-center gap-3 relative border-b border-gray-100">

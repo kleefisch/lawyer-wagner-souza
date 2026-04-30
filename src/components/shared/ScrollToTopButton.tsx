@@ -23,7 +23,7 @@ export function ScrollToTopButton() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-24 right-6 bg-[#0F172A] text-[#F8F6F0] p-3 rounded-full shadow-xl hover:bg-[#1E293B] transition-all z-50 border border-[#B89B72]/30"
+          className="fixed bottom-20 right-3 sm:bottom-24 sm:right-6 bg-[#0F172A]/60 text-[#F8F6F0] p-3 rounded-full shadow-xl hover:bg-[#0F172A]/80 transition-all z-50 border border-[#B89B72]/30 backdrop-blur-sm"
           aria-label="Voltar ao topo"
         >
           <ArrowUp className="h-5 w-5" />
