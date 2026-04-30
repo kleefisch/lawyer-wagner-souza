@@ -110,6 +110,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="depoimentos"
+      aria-label="Depoimentos de clientes"
       className="relative py-20 lg:py-32 overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-white via-[#F8F6F0] to-[#EFECE6]"></div>
@@ -168,6 +169,9 @@ export function TestimonialsSection() {
 
         <div className="relative overflow-hidden">
           <motion.div
+            aria-live="polite"
+            aria-atomic="true"
+            aria-label={`Página ${testimonialPage + 1} de ${totalPages} de depoimentos`}
             className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${isMobile ? "cursor-grab active:cursor-grabbing" : ""}`}
             drag={isMobile ? "x" : false}
             dragConstraints={{ left: 0, right: 0 }}
@@ -248,18 +252,20 @@ export function TestimonialsSection() {
                 )
               }
               className="w-12 h-12 rounded-full bg-white border border-[#B89B72]/30 flex items-center justify-center hover:bg-[#B89B72] hover:text-white transition-all"
-              aria-label="Anterior"
+              aria-label="Depoimentos anteriores"
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-5 w-5" aria-hidden="true" />
             </button>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2" role="tablist" aria-label="Páginas de depoimentos">
               {[...Array(totalPages)].map((_, i) => (
                 <button
                   key={i}
+                  role="tab"
                   onClick={() => setTestimonialPage(i)}
                   className={`w-2 h-2 rounded-full transition-all ${i === testimonialPage ? "bg-[#B89B72] w-8" : "bg-[#B89B72]/30"}`}
-                  aria-label={`Página ${i + 1}`}
+                  aria-label={`Ir para página ${i + 1} de ${totalPages}`}
+                  aria-selected={i === testimonialPage}
                 />
               ))}
             </div>
@@ -271,9 +277,9 @@ export function TestimonialsSection() {
                 )
               }
               className="w-12 h-12 rounded-full bg-white border border-[#B89B72]/30 flex items-center justify-center hover:bg-[#B89B72] hover:text-white transition-all"
-              aria-label="Próximo"
+              aria-label="Próximos depoimentos"
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-5 w-5" aria-hidden="true" />
             </button>
           </div>
         </div>

@@ -168,6 +168,13 @@
     animation: pulse-subtle 3s ease-in-out infinite;
   }
 
+  /* Focus visible — navegação por teclado */
+  :focus-visible {
+    outline: 2px solid var(--bronze-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
   /* Smooth scroll behavior */
   html {
     scroll-behavior: smooth;

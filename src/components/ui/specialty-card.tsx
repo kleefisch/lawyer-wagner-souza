@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react"
+import { useState, useEffect, useRef, useId } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { Check, LucideIcon, Eye, X } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa"
@@ -22,16 +22,53 @@ export function SpecialtyCard({
   items,
   whatsappNumber,
   area,
-  gradient,
   delay = 0
 }: SpecialtyCardProps) {
   const [showServices, setShowServices] = useState(false)
+  const titleId = useId()
+  const modalRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
 
   const handleWhatsApp = () => {
     const areaText = area === "Previdenciário" ? "Área Previdenciária" : `Área ${area}`
     const message = `Olá Dr. Wagner, preciso de uma consulta jurídica sobre ${title} (${areaText}). Podemos conversar sobre o meu caso?`
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
+
+  const openModal = () => setShowServices(true)
+
+  const closeModal = () => {
+    setShowServices(false)
+    triggerRef.current?.focus()
+  }
+
+  // Focus trap + Escape key
+  useEffect(() => {
+    if (!showServices) return
+
+    const modal = modalRef.current
+    if (!modal) return
+
+    const focusable = modal.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    first?.focus()
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { closeModal(); return }
+      if (e.key !== 'Tab') return
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last?.focus() }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first?.focus() }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [showServices])
 
   return (
     <>
@@ -79,7 +116,11 @@ export function SpecialtyCard({
             {/* Action Buttons */}
             <div className="flex gap-3">
               <button
-                onClick={() => setShowServices(true)}
+                ref={triggerRef}
+                onClick={openModal}
+                aria-haspopup="dialog"
+                aria-expanded={showServices}
+                aria-label={`Ver serviços de ${title}`}
                 className="flex-1 flex items-center justify-center gap-2 border border-[#B89B72] text-[#B89B72] px-4 py-3 text-sm tracking-tight hover:bg-[#B89B72] hover:text-white transition-all"
               >
                 <Eye className="h-3.5 w-3.5" strokeWidth={2} />
@@ -89,10 +130,9 @@ export function SpecialtyCard({
               <button
                 onClick={handleWhatsApp}
                 className="px-4 py-3 bg-gradient-to-r from-[#25D366] to-[#20BA5A] text-white hover:shadow-xl hover:scale-105 transition-all"
-                aria-label="WhatsApp"
-                title="Falar no WhatsApp"
+                aria-label={`Contato via WhatsApp sobre ${title}`}
               >
-                <FaWhatsapp className="h-5 w-5" />
+                <FaWhatsapp className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -105,7 +145,7 @@ export function SpecialtyCard({
         </div>
       </motion.div>
 
-      {/* Modal/Overlay for Services */}
+      {/* Modal */}
       <AnimatePresence>
         {showServices && (
           <motion.div
@@ -113,9 +153,13 @@ export function SpecialtyCard({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-[#0F172A]/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-            onClick={() => setShowServices(false)}
+            onClick={closeModal}
           >
             <motion.div
+              ref={modalRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={titleId}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -132,20 +176,20 @@ export function SpecialtyCard({
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-sm bg-gradient-to-br from-[#B89B72]/20 to-[#B89B72]/10 flex items-center justify-center flex-shrink-0">
-                      <Icon className="h-6 w-6 text-[#B89B72]" strokeWidth={1.5} />
+                      <Icon className="h-6 w-6 text-[#B89B72]" strokeWidth={1.5} aria-hidden="true" />
                     </div>
                     <div>
-                      <h3 className="text-xl text-[#0F172A]" style={{ fontWeight: 600 }}>
+                      <h3 id={titleId} className="text-xl text-[#0F172A]" style={{ fontWeight: 600 }}>
                         {title}
                       </h3>
                     </div>
                   </div>
                   <button
-                    onClick={() => setShowServices(false)}
+                    onClick={closeModal}
                     className="p-2 hover:bg-[#B89B72]/10 transition-colors rounded-sm flex-shrink-0"
-                    aria-label="Fechar"
+                    aria-label={`Fechar painel de ${title}`}
                   >
-                    <X className="h-5 w-5 text-[#B89B72]" strokeWidth={2} />
+                    <X className="h-5 w-5 text-[#B89B72]" strokeWidth={2} aria-hidden="true" />
                   </button>
                 </div>
 
@@ -166,7 +210,7 @@ export function SpecialtyCard({
                         transition={{ delay: idx * 0.05 }}
                         className="flex items-start gap-3 group/item"
                       >
-                        <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-[#B89B72]/20 to-[#B89B72]/10 border border-[#B89B72]/30 flex items-center justify-center mt-0.5 flex-shrink-0 group-hover/item:bg-[#B89B72] transition-all duration-200">
+                        <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-[#B89B72]/20 to-[#B89B72]/10 border border-[#B89B72]/30 flex items-center justify-center mt-0.5 flex-shrink-0 group-hover/item:bg-[#B89B72] transition-all duration-200" aria-hidden="true">
                           <Check className="w-3 h-3 text-[#B89B72] group-hover/item:text-white transition-colors" strokeWidth={3} />
                         </div>
                         <span className="text-[14px] text-[#475569] leading-relaxed tracking-tight group-hover/item:text-[#0F172A] transition-colors">
@@ -184,7 +228,7 @@ export function SpecialtyCard({
                     onClick={handleWhatsApp}
                     className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#B89B72] to-[#8B7355] text-white px-6 py-4 text-sm tracking-tight hover:shadow-xl hover:-translate-y-0.5 transition-all"
                   >
-                    <FaWhatsapp className="h-5 w-5" />
+                    <FaWhatsapp className="h-5 w-5" aria-hidden="true" />
                     <span style={{ fontWeight: 600 }}>Consultar Advogado no WhatsApp</span>
                   </button>
                 </div>

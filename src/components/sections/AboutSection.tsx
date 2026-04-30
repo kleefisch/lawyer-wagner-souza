@@ -20,38 +20,32 @@ export function AboutSection() {
   const [stats, setStats] = useState({ years: 0, cases: 0, satisfaction: 0 });
 
   useEffect(() => {
-    const animateStats = () => {
-      let yearsCount = 0;
-      let casesCount = 0;
-      let satisfactionCount = 0;
-
-      const interval = setInterval(() => {
-        if (yearsCount < 5) yearsCount++;
-        if (casesCount < 500) casesCount += 25;
-        if (satisfactionCount < 98) satisfactionCount += 2;
-
-        setStats({
-          years: yearsCount,
-          cases: casesCount,
-          satisfaction: satisfactionCount,
-        });
-
-        if (yearsCount >= 5 && casesCount >= 500 && satisfactionCount >= 98) {
-          clearInterval(interval);
-        }
-      }, 30);
-    };
+    const statsElement = document.getElementById("stats-section");
+    if (!statsElement) return;
 
     const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        animateStats();
-        observer.disconnect();
-      }
+      if (!entries[0].isIntersecting) return;
+      observer.disconnect();
+
+      const duration = 1500;
+      const targets = { years: 5, cases: 500, satisfaction: 98 };
+      const startTime = performance.now();
+
+      const step = (now: number) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+        setStats({
+          years: Math.round(ease * targets.years),
+          cases: Math.round(ease * targets.cases),
+          satisfaction: Math.round(ease * targets.satisfaction),
+        });
+        if (progress < 1) requestAnimationFrame(step);
+      };
+
+      requestAnimationFrame(step);
     });
 
-    const statsElement = document.getElementById("stats-section");
-    if (statsElement) observer.observe(statsElement);
-
+    observer.observe(statsElement);
     return () => observer.disconnect();
   }, []);
 

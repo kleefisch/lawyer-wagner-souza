@@ -103,7 +103,7 @@ export function WhatsAppButton() {
                 </p>
                 <div className="flex items-center justify-end gap-1 text-[10px] text-gray-500">
                   <span>{currentTime}</span>
-                  <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
+                  <svg width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true">
                     <path
                       d="M5.5 7L1.5 3L0 4.5L5.5 10L15.5 0L14 -1.5L5.5 7Z"
                       fill="#25D366"
@@ -123,14 +123,14 @@ export function WhatsAppButton() {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-lg hover:bg-[#20BA5A] transition-all"
+                className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-[#064E3B] py-3 rounded-lg hover:bg-[#20BA5A] transition-all"
                 onClick={() => {
                   trackWhatsAppClick("floating_popup");
                   setShowWhatsAppPopup(false);
                 }}
               >
-                <FaWhatsapp className="h-5 w-5" />
-                <span style={{ fontWeight: 600 }}>Conversar</span>
+                <FaWhatsapp className="h-5 w-5" aria-hidden="true" />
+                <span style={{ fontWeight: 700 }}>Conversar</span>
               </a>
             </div>
           </motion.div>
