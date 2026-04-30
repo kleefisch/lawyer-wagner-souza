@@ -1,3 +1,8 @@
+<p align="right">
+  <a href="README.md"><strong>🇺🇸 English</strong></a> &nbsp;·&nbsp;
+  <a href="README.pt-br.md">🇧🇷 Português</a>
+</p>
+
 <p align="center">
   <img src="public/wagner-hero-1.png" alt="Wagner Souza Advocacia" width="280" />
 </p>
@@ -5,14 +10,14 @@
 <h1 align="center">Wagner Souza Advocacia</h1>
 
 <p align="center">
-  <strong>Website institucional de alto impacto para escritório de advocacia especializado em Direito Criminal e Previdenciário.</strong>
+  <strong>High-impact institutional website for a law firm specializing in Criminal and Social Security Law.</strong>
 </p>
 
 <p align="center">
   <a href="https://wagnersouzaadvocacia.com.br">🌐 Live Demo</a> •
-  <a href="#-stack-técnica">⚙️ Stack</a> •
-  <a href="#-funcionalidades">✨ Features</a> •
-  <a href="#-arquitetura">🏗️ Arquitetura</a>
+  <a href="#-tech-stack">⚙️ Stack</a> •
+  <a href="#-features">✨ Features</a> •
+  <a href="#-architecture">🏗️ Architecture</a>
 </p>
 
 <p align="center">
@@ -25,77 +30,77 @@
 
 ---
 
-## 📋 Sobre o Projeto
+## 📋 About
 
-Website institucional desenvolvido para o escritório **Wagner Souza Advocacia**, com foco em:
+Institutional website built for **Wagner Souza Advocacia**, focused on:
 
-- **SEO agressivo** para rankeamento orgânico em Goiânia/GO/Centro-Oeste e em todo o Brasil
-- **Google Ads ready** com Google Tag Manager + Consent Mode v2
-- **Compliance LGPD/OAB** com banner de cookies, políticas de privacidade e termos de uso
-- **Design premium** com estética executiva (navy + gold/bronze) que transmite autoridade e confiança
+- **Aggressive SEO** for organic ranking across Goiânia, Goiás, and Brazil
+- **Google Ads ready** with Google Tag Manager + Consent Mode v2
+- **LGPD/OAB compliance** with a cookie consent banner, privacy policy, and terms of use
+- **Premium design** using an executive aesthetic (navy + bronze) to convey authority and trust
 
-### 🎯 Objetivo de Negócio
+### 🎯 Business Goal
 
-Gerar leads qualificados via WhatsApp para consultas jurídicas nas áreas de Direito Criminal e Previdenciário, com atuação nacional e foco regional em Goiás.
-
----
-
-## ⚙️ Stack Técnica
-
-| Tecnologia | Versão | Propósito |
-|-----------|--------|-----------|
-| **Next.js** | 16.2 | Framework React com SSG, otimização de imagens e routing |
-| **React** | 19.x | UI components com hooks modernos |
-| **TypeScript** | 5.x | Type safety em todo o projeto |
-| **Tailwind CSS** | 4.x | Utility-first CSS com design system customizado |
-| **Framer Motion** | 11.x | Animações fluidas e micro-interações |
-| **Radix UI** | latest | Componentes acessíveis (Accordion, Tabs) |
-| **@next/third-parties** | latest | Integração otimizada com Google Tag Manager |
+Generate qualified leads via WhatsApp for legal consultations in Criminal and Social Security Law, with national reach and a regional focus on Goiás.
 
 ---
 
-## ✨ Funcionalidades
+## ⚙️ Tech Stack
+
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| **Next.js** | 16.2 | React framework — SSG, image optimization, routing |
+| **React** | 19.x | UI components with modern hooks |
+| **TypeScript** | 5.x | Type safety across the entire project |
+| **Tailwind CSS** | 4.x | Utility-first CSS with a custom design system |
+| **Framer Motion** | 11.x | Smooth animations and micro-interactions |
+| **Radix UI** | latest | Accessible primitives (Accordion, Tabs) |
+| **@next/third-parties** | latest | Optimized Google Tag Manager integration |
+
+---
+
+## ✨ Features
 
 ### 🔍 SEO & Performance
-- **Schema markup (JSON-LD)** — `LegalService` + `FAQPage` para rich snippets no Google
-- **Meta tags otimizadas** — Title, description, keywords, OpenGraph, Twitter Cards
-- **Canonical URL** e sitemap.xml automatizado
-- **Otimização de imagens** via `next/image` com lazy loading e formatos modernos (WebP/AVIF)
-- **Static Site Generation (SSG)** — páginas pré-renderizadas para máxima velocidade
+- **JSON-LD Schema markup** — `LegalService` + `FAQPage` for Google rich snippets
+- **Optimized meta tags** — Title, description, keywords, OpenGraph, Twitter Cards
+- **Canonical URL** and auto-generated `sitemap.xml`
+- **Image optimization** via `next/image` with lazy loading and modern formats (WebP/AVIF)
+- **Static Site Generation (SSG)** — pre-rendered pages for maximum speed
 
 ### 📊 Analytics & Ads
-- **Google Tag Manager** (GTM-MW2HHJZ5) integrado via `@next/third-parties`
-- **Google Consent Mode v2** — default-deny com atualização granular por categoria
-- **DataLayer events** — tracking centralizado de cliques em WhatsApp com `button_location`
-- **Pronto para Google Ads** — conversões configuráveis via GTM
+- **Google Tag Manager** (GTM-MW2HHJZ5) integrated via `@next/third-parties`
+- **Google Consent Mode v2** — default-deny with granular category updates
+- **DataLayer events** — centralized WhatsApp click tracking with `button_location`
+- **Google Ads ready** — conversions configurable via GTM
 
-### 🔒 Compliance & Segurança
-- **LGPD** — Banner de cookies com consentimento granular (necessário/analytics/marketing)
-- **Modais legais** — Política de Privacidade, Termos de Uso, Política de Cookies
+### 🔒 Compliance & Security
+- **LGPD** — cookie banner with granular consent (essential/analytics/marketing)
+- **Legal modals** — Privacy Policy, Terms of Use, Cookie Policy
 - **Security headers** — X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy, Permissions-Policy
-- **OAB** — Conformidade com Provimento 205/2021 sobre publicidade na advocacia
+- **OAB compliance** — follows Provimento 205/2021 on legal advertising
 
 ### 🎨 Design & UX
-- **Design system** — Paleta corporativa (Navy Deep, Bronze Accent, Sand Light) com variáveis CSS
-- **Responsive design** — Mobile-first com breakpoints otimizados
-- **Micro-animações** — Scroll-triggered animations, hover effects, card transitions
-- **WhatsApp widget** — Popup inteligente com timer de 15s + botão flutuante com pulse
-- **Mobile menu** — Slide-in drawer com spring animations
-- **Scroll to top** — Botão contextual com fade-in/out
+- **Design system** — corporate palette (Navy Deep, Bronze Accent, Sand Light) with CSS variables
+- **Mobile-first** — responsive layout with optimized breakpoints
+- **Micro-animations** — scroll-triggered animations, hover effects, card transitions
+- **WhatsApp widget** — smart popup with 15s timer + pulsing floating button
+- **Mobile menu** — slide-in drawer with spring animations
+- **Scroll to top** — contextual button with fade-in/out
 
 ---
 
-## 🏗️ Arquitetura
+## 🏗️ Architecture
 
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # Root layout com SEO, JSON-LD schemas, GTM
-│   ├── page.tsx            # Home page (composição de seções)
-│   ├── robots.ts           # robots.txt dinâmico
-│   └── sitemap.ts          # sitemap.xml dinâmico
+│   ├── layout.tsx          # Root layout — SEO, JSON-LD schemas, GTM
+│   ├── page.tsx            # Home page (section composition)
+│   ├── robots.ts           # Dynamic robots.txt
+│   └── sitemap.ts          # Dynamic sitemap.xml
 ├── components/
-│   ├── sections/           # Seções da página (9 componentes)
+│   ├── sections/           # Page sections (9 components)
 │   │   ├── NavBar.tsx
 │   │   ├── HeroSection.tsx
 │   │   ├── AreasSection.tsx
@@ -105,7 +110,7 @@ src/
 │   │   ├── TestimonialsSection.tsx
 │   │   ├── FaqSection.tsx
 │   │   └── ContactSection.tsx
-│   ├── shared/             # Componentes reutilizáveis globais
+│   ├── shared/             # Global reusable components
 │   │   ├── CTABanner.tsx
 │   │   ├── WhatsAppButton.tsx
 │   │   ├── ScrollToTopButton.tsx
@@ -113,56 +118,51 @@ src/
 │   │   ├── LegalModals.tsx
 │   │   ├── Footer.tsx
 │   │   └── ClientModalsWrapper.tsx
-│   └── ui/                 # Primitivos de UI (Radix wrappers)
+│   └── ui/                 # UI primitives (Radix wrappers)
 │       ├── accordion.tsx
 │       ├── tabs.tsx
 │       ├── specialty-card.tsx
 │       └── mobile-menu.tsx
 ├── lib/
-│   ├── constants.ts        # Dados centralizados (OAB, telefone, email, WhatsApp)
-│   └── analytics.ts        # Funções de tracking GTM
+│   ├── constants.ts        # Centralized data (OAB, phone, email, WhatsApp)
+│   └── analytics.ts        # GTM tracking helpers
 └── styles/
-    ├── index.css           # Entry point de estilos
-    ├── tailwind.css        # Configuração Tailwind v4
-    └── theme.css           # Design tokens e base styles
+    ├── index.css           # Style entry point
+    ├── tailwind.css        # Tailwind v4 config
+    └── theme.css           # Design tokens and base styles
 ```
 
-### Decisões Arquiteturais
+### Architectural Decisions
 
-| Decisão | Razão |
-|---------|-------|
-| **Dados centralizados em `constants.ts`** | OAB, telefone, email e links de WhatsApp em um único lugar — evita inconsistências e facilita manutenção |
-| **`CTABanner` como componente reutilizável** | O mesmo padrão de CTA aparecia em 4 seções — extraído para eliminar duplicação |
-| **`analytics.ts` centralizado** | Todas as seções usam `trackWhatsAppClick()` com localização — consistência no tracking GTM |
-| **UI components em `components/ui/`** | Wrappers Radix (Accordion, Tabs) separados dos componentes de negócio |
-| **CSS variables + Tailwind** | Design tokens em `:root` para consistência, Tailwind para utility classes |
+| Decision | Reason |
+|----------|--------|
+| **Centralized data in `constants.ts`** | OAB number, phone, email, and WhatsApp links in one place — prevents inconsistencies |
+| **`CTABanner` as a reusable component** | The same CTA pattern appeared in 4 sections — extracted to eliminate duplication |
+| **Centralized `analytics.ts`** | All sections use `trackWhatsAppClick()` with location context — consistent GTM tracking |
+| **UI components in `components/ui/`** | Radix wrappers (Accordion, Tabs) separated from business components |
+| **CSS variables + Tailwind** | Design tokens in `:root` for consistency; Tailwind for utility classes |
 
 ---
 
 ## 🚀 Getting Started
 
-### Pré-requisitos
+### Prerequisites
 
 - Node.js 18+
-- pnpm (recomendado) ou npm
+- pnpm (recommended) or npm
 
-### Instalação
+### Installation
 
 ```bash
-# Clone o repositório
 git clone https://github.com/kleefisch/lawyer-wagner-souza.git
 cd lawyer-wagner-souza
-
-# Instale as dependências
 pnpm install
-
-# Inicie o servidor de desenvolvimento
 pnpm dev
 ```
 
-Acesse [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000).
 
-### Build de Produção
+### Production Build
 
 ```bash
 pnpm build
@@ -173,32 +173,32 @@ pnpm start
 
 ## 🌍 Deploy
 
-O projeto está otimizado para deploy na **Vercel**:
+Optimized for **Vercel**:
 
-1. Conecte o repositório no [vercel.com](https://vercel.com)
-2. Configure o domínio customizado
-3. SSL/HTTPS é automático
-4. Variáveis de ambiente (se necessário) via dashboard
+1. Connect the repository at [vercel.com](https://vercel.com)
+2. Set a custom domain
+3. SSL/HTTPS is automatic
+4. Configure environment variables via the dashboard if needed
 
 ---
 
 ## 📈 SEO Checklist
 
-- [x] `<title>` com keywords geográficas (Goiânia + Brasil)
-- [x] `<meta description>` otimizada com CTA
+- [x] `<title>` with geographic keywords (Goiânia + Brazil)
+- [x] Optimized `<meta description>` with CTA
 - [x] OpenGraph + Twitter Cards
-- [x] Schema.org `LegalService` com 19 serviços
-- [x] Schema.org `FAQPage` para rich snippets
+- [x] Schema.org `LegalService` with 19 services
+- [x] Schema.org `FAQPage` for rich snippets
 - [x] Canonical URL
 - [x] `sitemap.xml` + `robots.txt`
-- [x] Image `alt` tags com keywords
-- [x] Heading hierarchy (único `<h1>` por página)
+- [x] Image `alt` tags with keywords
+- [x] Proper heading hierarchy (single `<h1>` per page)
 - [x] Semantic HTML5
 
 ---
 
-## 📄 Licença
+## 📄 License
 
-Este projeto é proprietário. Todos os direitos reservados © 2026 Wagner Souza Advocacia.
+This project is proprietary. All rights reserved © 2026 Wagner Souza Advocacia.
 
-Desenvolvido por [KleeLabs](https://kleelabs.tech).
+Developed by [KleeLabs](https://kleelabs.tech).
