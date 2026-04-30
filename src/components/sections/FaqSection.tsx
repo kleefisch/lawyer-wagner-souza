@@ -1,7 +1,6 @@
 "use client";
 
 import { MessageCircle } from "lucide-react";
-import { motion } from "motion/react";
 
 import {
   Accordion,
@@ -22,13 +21,7 @@ export function FaqSection() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#B89B72]/5 rounded-full blur-3xl"></div>
 
       <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
-        >
+        <div className="mb-16 text-center anim-fade-up">
           <div className="inline-flex items-center gap-3 mb-6 px-5 py-2.5 bg-[#B89B72]/10 border border-[#B89B72]/30 backdrop-blur-sm">
             <div className="w-1 h-4 bg-gradient-to-b from-[#B89B72] to-[#8B7355]"></div>
             <span
@@ -57,15 +50,9 @@ export function FaqSection() {
             Respostas claras e objetivas sobre nossos serviços jurídicos e
             processo de atendimento
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white/5 backdrop-blur-sm border border-[#B89B72]/20 p-10 lg:p-12"
-        >
+        <div className="bg-white/5 backdrop-blur-sm border border-[#B89B72]/20 p-10 lg:p-12 anim-fade-up anim-delay-200">
           <Accordion type="single" collapsible className="w-full space-y-4">
             {[
               {
@@ -123,7 +110,7 @@ export function FaqSection() {
               </AccordionItem>
             ))}
           </Accordion>
-        </motion.div>
+        </div>
 
         <CTABanner
           title="Não Encontrou a Resposta Que Procurava?"

@@ -11,7 +11,6 @@ import {
   Star,
   TrendingUp,
 } from "lucide-react";
-import { motion } from "motion/react";
 import Image from "next/image";
 
 import { OAB_NUMBER } from "../../lib/constants";
@@ -64,18 +63,13 @@ export function AboutSection() {
         </div>
 
         <div className="grid lg:grid-cols-[400px_1fr] gap-12 lg:gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative mx-auto lg:mx-0"
-          >
+          <div className="relative mx-auto lg:mx-0 anim-slide-left">
             <div className="w-full max-w-[400px] h-[650px] rounded-sm relative overflow-hidden shadow-2xl">
               <Image
                 src="/wagner-about.png"
                 alt="Dr. Wagner Souza - Advogado em Goiânia com atuação nacional"
                 fill
+                quality={75}
                 className="object-cover object-top scale-x-[-1]"
                 sizes="(max-width: 1024px) 100vw, 400px"
               />
@@ -86,14 +80,9 @@ export function AboutSection() {
             </div>
 
             <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-to-br from-[#2563EB]/20 to-[#B89B72]/20 backdrop-blur-3xl rounded-full -z-10"></div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <div className="anim-slide-right anim-delay-200">
             <div className="hidden lg:inline-flex items-center mb-4 px-4 py-1.5 bg-[#B89B72]/10 border border-[#B89B72]/30 text-[#B89B72] text-xs tracking-wide ml-auto w-fit">
               SOBRE O DR. WAGNER
             </div>
@@ -187,7 +176,7 @@ export function AboutSection() {
                 {OAB_NUMBER}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

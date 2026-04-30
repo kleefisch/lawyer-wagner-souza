@@ -165,6 +165,8 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

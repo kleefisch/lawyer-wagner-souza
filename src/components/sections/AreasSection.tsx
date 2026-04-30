@@ -21,7 +21,6 @@ import {
   Users,
   Zap,
 } from "lucide-react";
-import { motion } from "motion/react";
 
 import {
   Tabs,
@@ -58,13 +57,7 @@ export function AreasSection() {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#B89B72]/5 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mb-16 text-center mx-auto"
-        >
+        <div className="max-w-4xl mb-16 text-center mx-auto anim-fade-up">
           <div className="inline-flex items-center gap-3 mb-6 px-5 py-2.5 bg-white/80 backdrop-blur-sm border border-[#B89B72]/20 shadow-sm">
             <div className="w-1 h-4 bg-gradient-to-b from-[#B89B72] to-[#8B7355]"></div>
             <span
@@ -94,7 +87,7 @@ export function AreasSection() {
             estratégica, sigilo absoluto e resultados comprovados em todo o
             território nacional.
           </p>
-        </motion.div>
+        </div>
 
         <Tabs defaultValue="criminal" className="w-full">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">

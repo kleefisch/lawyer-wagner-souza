@@ -9,7 +9,6 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { motion } from "motion/react";
 
 import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_LINK, EMAIL, ADDRESS } from "../../lib/constants";
 import { trackWhatsAppClick } from "../../lib/analytics";
@@ -29,13 +28,7 @@ export function ContactSection() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mb-16 text-center mx-auto"
-        >
+        <div className="max-w-4xl mb-16 text-center mx-auto anim-fade-up">
           <div className="inline-flex items-center gap-3 mb-6 px-5 py-2.5 bg-white/80 backdrop-blur-sm border border-[#B89B72]/20 shadow-sm">
             <div className="w-1 h-4 bg-gradient-to-b from-[#B89B72] to-[#8B7355]"></div>
             <span
@@ -67,16 +60,10 @@ export function ContactSection() {
             Estamos prontos para atender você. Entre em contato e descubra como
             podemos ajudar
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8"
-          >
+          <div className="space-y-8 anim-slide-left">
             {[
               {
                 icon: Phone,
@@ -107,14 +94,7 @@ export function ContactSection() {
                 link: null,
               },
             ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group"
-              >
+              <div key={idx} className="group">
                 <div className="relative bg-white/90 backdrop-blur-sm border border-[#B89B72]/20 p-6 hover:border-[#B89B72] hover:shadow-xl transition-all duration-300">
                   <div className="absolute top-0 left-0 w-16 h-1 bg-gradient-to-r from-[#B89B72] to-transparent"></div>
 
@@ -162,17 +142,11 @@ export function ContactSection() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
+          <div className="relative anim-slide-right">
             <div className="sticky top-24 bg-gradient-to-br from-[#0F172A] to-[#1E293B] p-10 lg:p-12 border border-[#B89B72]/30">
               <div className="absolute inset-0 opacity-5">
                 <div
@@ -253,7 +227,7 @@ export function ContactSection() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -2,7 +2,6 @@
 
 import { ChevronRight, CheckCircle, Clock, Scale, Star } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { motion } from "motion/react";
 import Image from "next/image";
 
 import { WHATSAPP_LINK, OAB_NUMBER } from "../../lib/constants";
@@ -23,11 +22,7 @@ export function HeroSection() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="anim-fade-up">
             <div className="inline-flex items-center gap-1.5 sm:gap-2 mb-3 sm:mb-6 px-3 py-1 sm:px-4 sm:py-2 border border-[#B89B72]/30 bg-[#B89B72]/5 backdrop-blur-sm text-[#B89B72] text-[10px] sm:text-xs tracking-wide">
               <Star className="h-2.5 w-2.5 sm:h-3 sm:w-3 fill-[#B89B72]" />
               ADVOCACIA ESPECIALIZADA
@@ -85,22 +80,18 @@ export function HeroSection() {
                 Ver Especialidades
               </a>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
-          >
+          <div className="relative anim-fade-in anim-delay-200">
             <div className="aspect-[4/5] rounded-sm relative overflow-hidden shadow-2xl bg-gradient-to-br from-[#0F172A] to-[#1E293B]">
               <Image
                 src="/wagner-hero-1.png"
                 alt="Dr. Wagner Souza - Advogado Criminal e Previdenciário com atuação em todo o Brasil"
                 fill
                 priority
+                quality={75}
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-transparent"></div>
 
@@ -129,7 +120,7 @@ export function HeroSection() {
 
             <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-[#B89B72]/20 -z-10"></div>
             <div className="absolute -top-6 -left-6 w-32 h-32 border border-[#B89B72]/20 -z-10"></div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
