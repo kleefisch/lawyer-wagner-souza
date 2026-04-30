@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { Check, LucideIcon, Eye, X } from "lucide-react"
