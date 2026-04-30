@@ -54,7 +54,7 @@ export function LegalModals({ activeModal, setActiveModal }: LegalModalsProps) {
                     {activeModal === "cookies" && "Política de Cookies"}
                   </h3>
                   <p className="text-sm text-[#64748B] mt-1">
-                    Última atualização: 15 de Abril de 2026
+                    Última atualização: 30 de Abril de 2026
                   </p>
                 </div>
               </div>
@@ -78,7 +78,7 @@ export function LegalModals({ activeModal, setActiveModal }: LegalModalsProps) {
                     <p>
                       A <strong>Wagner Souza Advocacia</strong> preza pelo sigilo, confidencialidade e proteção absoluta dos dados de nossos clientes. Esta Política de Privacidade foi elaborada em estrita observância à Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018), bem como aos preceitos do Código de Ética e Disciplina da Ordem dos Advogados do Brasil (OAB).
                     </p>
-                    
+
                     <h4 className="text-lg text-[#0F172A] mt-8 mb-3 font-semibold border-l-2 border-[#B89B72] pl-3">
                       1. Princípios e Sigilo Profissional
                     </h4>
@@ -104,7 +104,7 @@ export function LegalModals({ activeModal, setActiveModal }: LegalModalsProps) {
                     <p>
                       Você possui controle sobre seus dados. Garantimos o exercício dos direitos de: confirmação da existência de tratamento, acesso, correção de dados incompletos ou desatualizados, anonimização, bloqueio ou eliminação de dados desnecessários, e a revogação do consentimento, resguardados os prazos prescricionais de armazenamento legal e a inviolabilidade inerente à atuação jurídica.
                     </p>
-                    
+
                     <div className="bg-[#F8F6F0] p-4 border border-[#B89B72]/20 mt-6 rounded-sm">
                       <p className="text-sm font-medium text-[#B89B72] mb-1">Contato do Encarregado de Dados (DPO)</p>
                       <p className="text-sm">Para exercer seus direitos ou tirar dúvidas sobre esta política, entre em contato diretamente através do e-mail oficial: <a href="mailto:wapsouza@gmail.com" className="font-medium text-[#B89B72]">wapsouza@gmail.com</a>.</p>
@@ -159,7 +159,7 @@ export function LegalModals({ activeModal, setActiveModal }: LegalModalsProps) {
                     <p>
                       A fim de proporcionar uma navegação fluida, segura e personalizada, utilizamos cookies tecnológicos em nosso site. Esta política, integrada à nossa Política de Privacidade, segue os padrões exigidos pela LGPD (Lei nº 13.709/2018) e opera em conformidade com o <em>Google Consent Mode v2</em>.
                     </p>
-                    
+
                     <h4 className="text-lg text-[#0F172A] mt-8 mb-3 font-semibold border-l-2 border-[#B89B72] pl-3">
                       1. O que são Cookies?
                     </h4>

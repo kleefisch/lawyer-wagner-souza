@@ -12,7 +12,7 @@ import {
   Gavel,
   Heart,
   Home,
-  MessageCircle,
+  Phone,
   Pill,
   Scale,
   Shield,
@@ -459,7 +459,7 @@ export function AreasSection() {
                   href="tel:+5562996421788"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 border border-[#B89B72]/30 text-[#F8F6F0] hover:bg-white/20 transition-all backdrop-blur-sm whitespace-nowrap text-sm"
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <Phone className="h-4 w-4" />
                   <span style={{ fontWeight: 600 }}>(62) 99642-1788</span>
                 </a>
               </div>
