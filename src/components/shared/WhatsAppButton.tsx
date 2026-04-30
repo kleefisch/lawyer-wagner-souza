@@ -4,14 +4,13 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { FaWhatsapp } from "react-icons/fa";
 import { X } from "lucide-react";
+import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE, WHATSAPP_LINK } from "../../lib/constants";
 
 export function WhatsAppButton() {
   const [showWhatsAppPopup, setShowWhatsAppPopup] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
 
-  const whatsappNumber = "5562996421788";
-  const whatsappMessage =
-    "Olá, Dr. Wagner! Gostaria de tirar uma dúvida sobre Direito Tributário/Empresarial.";
+
 
   const trackWhatsAppClick = () => {
     if (typeof window !== "undefined" && (window as any).dataLayer) {
@@ -37,7 +36,7 @@ export function WhatsAppButton() {
     <>
       {/* WhatsApp Flutuante */}
       <motion.a
-        href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+        href={WHATSAPP_LINK}
         target="_blank"
         rel="noopener noreferrer"
         onClick={trackWhatsAppClick}
@@ -128,7 +127,7 @@ export function WhatsAppButton() {
             {/* Action Button */}
             <div className="p-4 bg-white">
               <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+                href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-lg hover:bg-[#20BA5A] transition-all"

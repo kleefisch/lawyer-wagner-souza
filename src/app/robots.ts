@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://seusite.com.br/sitemap.xml",
+    sitemap: "https://wagnersouzaadvocacia.com.br/sitemap.xml",
   };
 }

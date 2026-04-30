@@ -5,7 +5,7 @@ import { Scale, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 import { MobileMenu } from "../../app/components/mobile-menu";
-import { WHATSAPP_LINK } from "../../lib/constants";
+import { WHATSAPP_LINK, WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from "../../lib/constants";
 
 export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,9 +17,7 @@ export function NavBar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const whatsappNumber = "5562996421788";
-  const whatsappMessage =
-    "Olá Dr. Wagner, preciso de uma consulta jurídica. Podemos conversar sobre o meu caso?";
+
 
   return (
     <nav
@@ -111,8 +109,8 @@ export function NavBar() {
               Falar com Advogado
             </a>
             <MobileMenu
-              whatsappNumber={whatsappNumber}
-              whatsappMessage={whatsappMessage}
+              whatsappNumber={WHATSAPP_NUMBER}
+              whatsappMessage={WHATSAPP_MESSAGE}
             />
           </div>
         </div>
