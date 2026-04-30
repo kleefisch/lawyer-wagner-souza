@@ -85,7 +85,7 @@ export function HeroSection() {
           <div className="relative anim-fade-in anim-delay-200">
             <div className="aspect-[4/5] rounded-sm relative overflow-hidden shadow-2xl bg-gradient-to-br from-[#0F172A] to-[#1E293B]">
               <Image
-                src="/wagner-hero-1.png"
+                src="/wagner-hero-1.webp"
                 alt="Dr. Wagner Souza - Advogado Criminal e Previdenciário com atuação em todo o Brasil"
                 fill
                 priority

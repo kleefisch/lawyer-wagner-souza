@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GoogleTagManager } from '@next/third-parties/google';
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "../styles/index.css";
 
@@ -192,7 +192,21 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <GoogleTagManager gtmId="GTM-MW2HHJZ5" />
+        {/* GTM com lazyOnload — carrega após browser idle, sem bloquear TTI */}
+        <Script
+          id="gtm"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MW2HHJZ5');`,
+          }}
+        />
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MW2HHJZ5"
+            height="0" width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         {children}
       </body>
     </html>

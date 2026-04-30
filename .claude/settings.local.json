@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx lighthouse *)",
+      "Bash(node -e ' *)",
+      "Bash(pnpm rebuild *)",
+      "Bash(pnpm build *)"
+    ]
+  }
+}

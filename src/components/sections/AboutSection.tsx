@@ -66,7 +66,7 @@ export function AboutSection() {
           <div className="relative mx-auto lg:mx-0 anim-slide-left">
             <div className="w-full max-w-[400px] h-[650px] rounded-sm relative overflow-hidden shadow-2xl">
               <Image
-                src="/wagner-about.png"
+                src="/wagner-about.webp"
                 alt="Dr. Wagner Souza - Advogado em Goiânia com atuação nacional"
                 fill
                 quality={75}
