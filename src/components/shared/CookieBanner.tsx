@@ -18,6 +18,18 @@ export function CookieBanner({ setActiveModal }: CookieBannerProps) {
   });
   const [consentGranted, setConsentGranted] = useState(false);
 
+  const updateConsent = (prefs: { analytics: boolean, marketing: boolean }) => {
+    if (typeof window !== "undefined" && (window as any).dataLayer) {
+      function gtag(){ (window as any).dataLayer.push(arguments); }
+      gtag('consent', 'update', {
+        'ad_storage': prefs.marketing ? 'granted' : 'denied',
+        'ad_user_data': prefs.marketing ? 'granted' : 'denied',
+        'ad_personalization': prefs.marketing ? 'granted' : 'denied',
+        'analytics_storage': prefs.analytics ? 'granted' : 'denied'
+      });
+    }
+  };
+
   useEffect(() => {
     const consent = localStorage.getItem("cookie_consent");
     if (!consent) {
@@ -25,6 +37,7 @@ export function CookieBanner({ setActiveModal }: CookieBannerProps) {
     } else {
       const parsed = JSON.parse(consent);
       setCookiePreferences(parsed);
+      updateConsent(parsed);
       if (parsed.analytics || parsed.marketing) {
         setConsentGranted(true);
       }
@@ -36,6 +49,7 @@ export function CookieBanner({ setActiveModal }: CookieBannerProps) {
     localStorage.setItem("cookie_consent", JSON.stringify(prefs));
     setCookiePreferences(prefs);
     setConsentGranted(true);
+    updateConsent(prefs);
     setShowCookieBanner(false);
   };
 
@@ -44,6 +58,7 @@ export function CookieBanner({ setActiveModal }: CookieBannerProps) {
     if (cookiePreferences.analytics || cookiePreferences.marketing) {
       setConsentGranted(true);
     }
+    updateConsent(cookiePreferences);
     setShowCookiePreferences(false);
     setShowCookieBanner(false);
   };
@@ -235,29 +250,6 @@ export function CookieBanner({ setActiveModal }: CookieBannerProps) {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Google Tag Manager (Conditional) */}
-      {consentGranted && (
-        <>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-XXXXXXX');`, // TROQUE GTM-XXXXXXX
-            }}
-          />
-          <noscript>
-            <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" // TROQUE
-              height="0"
-              width="0"
-              style={{ display: "none", visibility: "hidden" }}
-            />
-          </noscript>
-        </>
-      )}
     </>
   );
 }
