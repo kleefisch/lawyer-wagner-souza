@@ -14,6 +14,8 @@ import {
 import { motion } from "motion/react";
 import Image from "next/image";
 
+import { OAB_NUMBER } from "../../lib/constants";
+
 export function AboutSection() {
   const [stats, setStats] = useState({ years: 0, cases: 0, satisfaction: 0 });
 
@@ -78,7 +80,7 @@ export function AboutSection() {
             <div className="w-full max-w-[400px] h-[650px] rounded-sm relative overflow-hidden shadow-2xl">
               <Image
                 src="/wagner-about.png"
-                alt="Dr. Wagner Souza"
+                alt="Dr. Wagner Souza - Advogado em Goiânia com atuação nacional"
                 fill
                 className="object-cover object-top scale-x-[-1]"
                 sizes="(max-width: 1024px) 100vw, 400px"
@@ -188,7 +190,7 @@ export function AboutSection() {
               </div>
               <div className="flex items-center gap-2 text-sm text-[#94A3B8]">
                 <Scale className="h-4 w-4 text-[#B89B72]" />
-                OAB/GO 54.321
+                {OAB_NUMBER}
               </div>
             </div>
           </motion.div>

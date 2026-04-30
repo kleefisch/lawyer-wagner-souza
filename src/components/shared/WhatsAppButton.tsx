@@ -4,22 +4,13 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { FaWhatsapp } from "react-icons/fa";
 import { X } from "lucide-react";
-import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE, WHATSAPP_LINK } from "../../lib/constants";
+import Image from "next/image";
+import { WHATSAPP_LINK } from "../../lib/constants";
+import { trackWhatsAppClick } from "../../lib/analytics";
 
 export function WhatsAppButton() {
   const [showWhatsAppPopup, setShowWhatsAppPopup] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
-
-
-
-  const trackWhatsAppClick = () => {
-    if (typeof window !== "undefined" && (window as any).dataLayer) {
-      (window as any).dataLayer.push({
-        event: "whatsapp_click",
-        button_location: "floating_widget"
-      });
-    }
-  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -39,7 +30,7 @@ export function WhatsAppButton() {
         href={WHATSAPP_LINK}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={trackWhatsAppClick}
+        onClick={() => trackWhatsAppClick("floating_widget")}
         className="fixed bottom-6 right-6 bg-[#25D366] text-white p-3 rounded-full shadow-2xl hover:bg-[#20BA5A] transition-all hover:scale-110 z-[70] group"
         aria-label="Falar no WhatsApp"
         initial={{ scale: 0, opacity: 0 }}
@@ -71,10 +62,12 @@ export function WhatsAppButton() {
           >
             {/* Header */}
             <div className="bg-white p-4 flex items-center gap-3 relative border-b border-gray-100">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0F172A] to-[#1E293B] flex items-center justify-center overflow-hidden">
-                <img
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0F172A] to-[#1E293B] flex items-center justify-center overflow-hidden relative">
+                <Image
                   src="/wagner-about.png"
                   alt="Dr. Wagner Souza"
+                  width={48}
+                  height={48}
                   className="w-full h-full object-cover object-top"
                 />
               </div>
@@ -132,7 +125,7 @@ export function WhatsAppButton() {
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-lg hover:bg-[#20BA5A] transition-all"
                 onClick={() => {
-                  trackWhatsAppClick();
+                  trackWhatsAppClick("floating_popup");
                   setShowWhatsAppPopup(false);
                 }}
               >

@@ -3,7 +3,7 @@
 import { Scale, Phone, MapPin, Mail, Clover, CheckCircle } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Facebook, Twitter, Instagram } from "lucide-react";
-import { WHATSAPP_LINK } from "../../lib/constants";
+import { WHATSAPP_LINK, PHONE_LINK, PHONE_NUMBER, EMAIL, ADDRESS, OAB_NUMBER } from "../../lib/constants";
 
 interface FooterProps {
   setActiveModal: (modal: "privacy" | "terms" | "cookies" | null) => void;
@@ -169,30 +169,29 @@ export function Footer({ setActiveModal }: FooterProps) {
             </h3>
             <div className="space-y-4 text-sm text-[#94A3B8]">
               <a
-                href="tel:+5562996421788"
+                href={PHONE_LINK}
                 className="flex items-center gap-3 hover:text-[#B89B72] transition-colors group"
               >
                 <div className="w-8 h-8 rounded-full bg-[#F8F6F0]/5 flex items-center justify-center group-hover:bg-[#B89B72]/20 transition-colors">
                   <Phone className="h-4 w-4" />
                 </div>
-                <span>(62) 99642-1788</span>
+                <span>{PHONE_NUMBER}</span>
               </a>
               <a
-                href="mailto:wapsouza@gmail.com"
+                href={`mailto:${EMAIL}`}
                 className="flex items-center gap-3 hover:text-[#B89B72] transition-colors group"
               >
                 <div className="w-8 h-8 rounded-full bg-[#F8F6F0]/5 flex items-center justify-center group-hover:bg-[#B89B72]/20 transition-colors">
                   <Mail className="h-4 w-4" />
                 </div>
-                <span className="truncate">wapsouza@gmail.com</span>
+                <span className="truncate">{EMAIL}</span>
               </a>
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-[#F8F6F0]/5 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <MapPin className="h-4 w-4" />
                 </div>
                 <span className="text-xs leading-relaxed">
-                  Av Eng. Atílio Correia lima, Qd 108 Lt 11, Cidade Jardim,
-                  Goiânia - GO, 74425-030
+                  {ADDRESS}
                 </span>
               </div>
             </div>
@@ -203,7 +202,7 @@ export function Footer({ setActiveModal }: FooterProps) {
           <div className="flex flex-col gap-4">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-sm text-[#64748B] tracking-tight">
-                © 2026 Wagner Souza | Advocacia | OAB/GO 54.321. Todos os
+                © 2026 Wagner Souza | Advocacia | {OAB_NUMBER}. Todos os
                 direitos reservados.
               </p>
               <div className="flex flex-wrap justify-center gap-4 md:gap-6">

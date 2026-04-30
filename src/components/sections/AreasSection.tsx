@@ -6,16 +6,13 @@ import {
   Baby,
   Briefcase,
   Building,
-  CheckCircle,
   Clock,
   DollarSign,
   Gavel,
   Heart,
   Home,
-  Phone,
   Pill,
   Scale,
-  Shield,
   Skull,
   Star,
   Timer,
@@ -24,7 +21,6 @@ import {
   Users,
   Zap,
 } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "motion/react";
 
 import {
@@ -32,21 +28,12 @@ import {
   TabsList,
   TabsTrigger,
   TabsContent,
-} from "../../app/components/tabs";
-import { SpecialtyCard } from "../../app/components/specialty-card";
-import { WHATSAPP_LINK } from "../../lib/constants";
+} from "../../components/ui/tabs";
+import { SpecialtyCard } from "../../components/ui/specialty-card";
+import { WHATSAPP_NUMBER } from "../../lib/constants";
+import { CTABanner } from "../../components/shared/CTABanner";
 
 export function AreasSection() {
-  const whatsappNumber = "5562996421788";
-  const trackWhatsAppClick = () => {
-    if (typeof window !== "undefined" && (window as any).dataLayer) {
-      (window as any).dataLayer.push({
-        event: "whatsapp_click",
-        button_location: "areas_section"
-      });
-    }
-  };
-
   return (
     <section id="areas" className="relative py-20 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-[#F8F6F0] via-[#EFECE6] to-[#F8F6F0]"></div>
@@ -135,7 +122,7 @@ export function AreasSection() {
                   "Ameaça e Constrangimento Ilegal",
                   "Sequestro e Cárcere Privado",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Criminal"
                 gradient="from-[#2563EB]/10 to-[#B89B72]/5"
                 delay={0}
@@ -151,7 +138,7 @@ export function AreasSection() {
                   "Apropriação Indébita",
                   "Extorsão",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Criminal"
                 gradient="from-[#B89B72]/10 to-[#2563EB]/5"
                 delay={0.1}
@@ -167,7 +154,7 @@ export function AreasSection() {
                   "Associação Para o Tráfico",
                   "Defesa em Crimes Conexos",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Criminal"
                 gradient="from-[#2563EB]/10 to-[#B89B72]/5"
                 delay={0.2}
@@ -183,7 +170,7 @@ export function AreasSection() {
                   "Recursos e Apelações",
                   "Acompanhamento Processual Completo",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Criminal"
                 gradient="from-[#B89B72]/10 to-[#2563EB]/5"
                 delay={0.3}
@@ -199,7 +186,7 @@ export function AreasSection() {
                   "Proteção de Direitos na Investigação",
                   "Assistência em Inquéritos Policiais",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Criminal"
                 gradient="from-[#2563EB]/10 to-[#B89B72]/5"
                 delay={0.4}
@@ -215,7 +202,7 @@ export function AreasSection() {
                   "Sustentação Oral Especializada",
                   "Experiência Comprovada no Plenário",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Criminal"
                 gradient="from-[#B89B72]/10 to-[#2563EB]/5"
                 delay={0.5}
@@ -231,7 +218,7 @@ export function AreasSection() {
                   "Defesa Técnica Especializada",
                   "Acompanhamento Familiar",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Criminal"
                 gradient="from-[#2563EB]/10 to-[#B89B72]/5"
                 delay={0.6}
@@ -247,7 +234,7 @@ export function AreasSection() {
                   "Liberdade Provisória",
                   "Plantão 24 horas",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Criminal"
                 gradient="from-[#B89B72]/10 to-[#2563EB]/5"
                 delay={0.7}
@@ -267,7 +254,7 @@ export function AreasSection() {
                   "Aposentadoria Especial",
                   "Aposentadoria por Invalidez",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Previdenciário"
                 gradient="from-[#2563EB]/10 to-[#B89B72]/5"
                 delay={0}
@@ -283,7 +270,7 @@ export function AreasSection() {
                   "Aposentadoria por Invalidez",
                   "Acompanhamento em Perícias Médicas",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Previdenciário"
                 gradient="from-[#B89B72]/10 to-[#2563EB]/5"
                 delay={0.1}
@@ -299,7 +286,7 @@ export function AreasSection() {
                   "Revisão de Atividade Especial",
                   "Recálculo de Renda Mensal Inicial",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Previdenciário"
                 gradient="from-[#2563EB]/10 to-[#B89B72]/5"
                 delay={0.2}
@@ -315,7 +302,7 @@ export function AreasSection() {
                   "Análise de Dependentes",
                   "Manutenção e Restabelecimento",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Previdenciário"
                 gradient="from-[#B89B72]/10 to-[#2563EB]/5"
                 delay={0.3}
@@ -331,7 +318,7 @@ export function AreasSection() {
                   "Análise de Requisitos",
                   "Recursos Administrativos e Judiciais",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Previdenciário"
                 gradient="from-[#2563EB]/10 to-[#B89B72]/5"
                 delay={0.4}
@@ -347,7 +334,7 @@ export function AreasSection() {
                   "Orientação sobre Contribuições",
                   "Simulação de Benefícios",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Previdenciário"
                 gradient="from-[#B89B72]/10 to-[#2563EB]/5"
                 delay={0.5}
@@ -363,7 +350,7 @@ export function AreasSection() {
                   "Análise Documental Especializada",
                   "Direitos de Trabalhadores Rurais",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Previdenciário"
                 gradient="from-[#2563EB]/10 to-[#B89B72]/5"
                 delay={0.6}
@@ -379,7 +366,7 @@ export function AreasSection() {
                   "Ações Judiciais",
                   "Defesa de Direitos Previdenciários",
                 ]}
-                whatsappNumber={whatsappNumber}
+                whatsappNumber={WHATSAPP_NUMBER}
                 area="Previdenciário"
                 gradient="from-[#B89B72]/10 to-[#2563EB]/5"
                 delay={0.7}
@@ -388,87 +375,12 @@ export function AreasSection() {
           </TabsContent>
         </Tabs>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative mt-16"
-        >
-          <div className="relative bg-gradient-to-br from-[#0F172A] to-[#1E293B] p-8 lg:p-10 border border-[#B89B72]/30">
-            <div className="absolute inset-0 opacity-5">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `radial-gradient(circle at 2px 2px, #B89B72 1px, transparent 1px)`,
-                  backgroundSize: "32px 32px",
-                }}
-              ></div>
-            </div>
-
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B89B72] to-[#8B7355]"></div>
-
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
-              <div className="flex-1 text-center lg:text-left">
-                <h3
-                  className="text-xl lg:text-2xl tracking-tight mb-2 text-[#F8F6F0]"
-                  style={{ fontWeight: 600 }}
-                >
-                  Não Encontrou Sua Necessidade?
-                </h3>
-                <p className="text-[#CBD5E1] text-sm mb-4 lg:mb-0">
-                  Nossa equipe está pronta para atender casos complexos e
-                  personalizados.
-                </p>
-
-                <div className="flex flex-wrap gap-4 justify-center lg:justify-start mt-4">
-                  {[
-                    "Atendimento sigiloso",
-                    "Plantão 24 horas",
-                    "Sem compromisso",
-                  ].map((feature, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-2 text-[#CBD5E1]"
-                    >
-                      <CheckCircle
-                        className="w-3.5 h-3.5 text-[#B89B72]"
-                        strokeWidth={3}
-                      />
-                      <span className="text-xs">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-                <a
-                  href={WHATSAPP_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={trackWhatsAppClick}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#B89B72] to-[#8B7355] text-white hover:shadow-xl hover:-translate-y-0.5 transition-all whitespace-nowrap text-sm"
-                >
-                  <FaWhatsapp className="h-5 w-5" />
-                  <span style={{ fontWeight: 600 }}>
-                    Consulta Personalizada
-                  </span>
-                </a>
-
-                <a
-                  href="tel:+5562996421788"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 border border-[#B89B72]/30 text-[#F8F6F0] hover:bg-white/20 transition-all backdrop-blur-sm whitespace-nowrap text-sm"
-                >
-                  <Phone className="h-4 w-4" />
-                  <span style={{ fontWeight: 600 }}>(62) 99642-1788</span>
-                </a>
-              </div>
-            </div>
-
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#B89B72]/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#B89B72]/5 rounded-full blur-3xl"></div>
-          </div>
-        </motion.div>
+        <CTABanner
+          title="Não Encontrou Sua Necessidade?"
+          subtitle="Nossa equipe está pronta para atender casos complexos e personalizados."
+          features={["Atendimento sigiloso", "Plantão 24 horas", "Sem compromisso"]}
+          sectionName="areas"
+        />
       </div>
     </section>
   );

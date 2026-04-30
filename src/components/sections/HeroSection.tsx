@@ -5,17 +5,10 @@ import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "motion/react";
 import Image from "next/image";
 
-import { WHATSAPP_LINK } from "../../lib/constants";
+import { WHATSAPP_LINK, OAB_NUMBER } from "../../lib/constants";
+import { trackWhatsAppClick } from "../../lib/analytics";
 
 export function HeroSection() {
-  const trackWhatsAppClick = () => {
-    if (typeof window !== "undefined" && (window as any).dataLayer) {
-      (window as any).dataLayer.push({
-        event: "whatsapp_click",
-        button_location: "hero_section"
-      });
-    }
-  };
   return (
     <section className="bg-[#0F172A] pt-32 pb-20 lg:pt-40 lg:pb-32 relative overflow-hidden">
       {/* Background Pattern */}
@@ -43,7 +36,7 @@ export function HeroSection() {
               className="text-4xl lg:text-6xl tracking-tight mb-6 text-[#F8F6F0]"
               style={{ fontWeight: 600, lineHeight: "1.1" }}
             >
-              Defesa Jurídica de Alto Padrão
+              Defesa Jurídica de Alto Padrão em Todo o Brasil
             </h1>
             <p
               className="text-xl lg:text-2xl text-[#B89B72] mb-6"
@@ -78,7 +71,7 @@ export function HeroSection() {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={trackWhatsAppClick}
+                onClick={() => trackWhatsAppClick("hero_section")}
                 className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#B89B72] to-[#8B7355] text-white px-8 py-4 text-sm tracking-tight transition-all shadow-lg shadow-[#B89B72]/20 hover:shadow-xl hover:shadow-[#B89B72]/30 hover:-translate-y-0.5"
               >
                 <FaWhatsapp className="h-6 w-6" />
@@ -107,7 +100,7 @@ export function HeroSection() {
             <div className="aspect-[4/5] rounded-sm relative overflow-hidden shadow-2xl bg-gradient-to-br from-[#0F172A] to-[#1E293B]">
               <Image
                 src="/wagner-hero-1.png"
-                alt="Advogado Profissional"
+                alt="Dr. Wagner Souza - Advogado Criminal e Previdenciário com atuação em todo o Brasil"
                 fill
                 priority
                 className="object-contain"
@@ -131,7 +124,7 @@ export function HeroSection() {
                       Dr. Wagner Souza
                     </div>
                     <div className="text-[10px] lg:text-xs text-[#94A3B8]">
-                      OAB/GO 59.075
+                      {OAB_NUMBER}
                     </div>
                   </div>
                 </div>

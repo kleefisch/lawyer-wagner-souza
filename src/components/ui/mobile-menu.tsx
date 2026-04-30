@@ -1,8 +1,9 @@
-// @ts-nocheck
+"use client";
 import { useState } from "react"
 import { Menu, X, Phone } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa"
 import { motion, AnimatePresence } from "motion/react"
+import { PHONE_NUMBER, PHONE_LINK, EMAIL } from "../../lib/constants"
 
 interface MobileMenuProps {
   whatsappNumber: string
@@ -94,7 +95,7 @@ export function MobileMenu({ whatsappNumber, whatsappMessage }: MobileMenuProps)
                   </a>
 
                   <a
-                    href="tel:+5562996421788"
+                    href={PHONE_LINK}
                     className="flex items-center justify-center gap-2 w-full border border-[#B89B72]/30 text-[#F8F6F0] px-6 py-4 text-center tracking-tight hover:bg-[#F8F6F0]/10 hover:border-[#B89B72] transition-all"
                   >
                     <Phone className="h-5 w-5 text-[#B89B72]" />
@@ -104,8 +105,8 @@ export function MobileMenu({ whatsappNumber, whatsappMessage }: MobileMenuProps)
 
                 {/* Contact info */}
                 <div className="mt-8 pt-8 border-t border-[#F8F6F0]/10 space-y-3 text-sm text-[#94A3B8]">
-                  <p>(62) 99642-1788</p>
-                  <p>wapsouza@gmail.com</p>
+                  <p>{PHONE_NUMBER}</p>
+                  <p>{EMAIL}</p>
                   <p className="text-xs">Goiânia - GO • Atuação Nacional</p>
                 </div>
               </div>

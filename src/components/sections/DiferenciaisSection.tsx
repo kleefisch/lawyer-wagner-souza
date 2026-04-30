@@ -187,7 +187,7 @@ export function DiferenciaisSection() {
               {[
                 { value: "95%", label: "Taxa de Êxito", icon: TrendingUp },
                 { value: "24h", label: "Resposta Rápida", icon: Zap },
-                { value: "15+", label: "Anos de Experiência", icon: Award },
+                { value: "5+", label: "Anos de Experiência", icon: Award },
                 { value: "24/7", label: "Suporte Disponível", icon: Clock },
               ].map((stat, idx) => (
                 <div key={idx} className="text-center group">
@@ -215,5 +215,3 @@ export function DiferenciaisSection() {
     </section>
   );
 }
-
-export default DiferenciaisSection;

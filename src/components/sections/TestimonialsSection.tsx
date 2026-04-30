@@ -3,16 +3,13 @@
 import {
   ChevronLeft,
   ChevronRight,
-  Phone,
-  CheckCircle,
   Star,
 } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "motion/react";
 
-import { WHATSAPP_LINK } from "../../lib/constants";
-
 import { useState, useEffect } from "react";
+
+import { CTABanner } from "../../components/shared/CTABanner";
 
 export function TestimonialsSection() {
   const [testimonialPage, setTestimonialPage] = useState(0);
@@ -21,7 +18,7 @@ export function TestimonialsSection() {
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
-      setTestimonialPage(0); // Reset page when switching between mobile/desktop
+      setTestimonialPage(0);
     };
     checkMobile();
     window.addEventListener("resize", checkMobile);
@@ -30,12 +27,13 @@ export function TestimonialsSection() {
 
   useEffect(() => {
     const itemsPerPage = isMobile ? 1 : 3;
-    const totalPages = Math.ceil(9 / itemsPerPage); // 9 depoimentos totais
+    const totalPages = Math.ceil(9 / itemsPerPage);
     const interval = setInterval(() => {
       setTestimonialPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
     }, 20000);
     return () => clearInterval(interval);
   }, [isMobile]);
+
   const testimonials = [
     {
       name: "Maria Silva",
@@ -174,7 +172,7 @@ export function TestimonialsSection() {
             drag={isMobile ? "x" : false}
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.2}
-            onDragEnd={(e, { offset, velocity }) => {
+            onDragEnd={(_e, { offset, velocity }) => {
               const swipe = Math.abs(offset.x) * velocity.x;
               if (swipe < -10000) {
                 setTestimonialPage(
@@ -280,92 +278,12 @@ export function TestimonialsSection() {
           </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative mt-16"
-        >
-          <div className="relative bg-gradient-to-br from-[#0F172A] to-[#1E293B] p-8 lg:p-10 border border-[#B89B72]/30">
-            <div className="absolute inset-0 opacity-5">
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `radial-gradient(circle at 2px 2px, #B89B72 1px, transparent 1px)`,
-                  backgroundSize: "32px 32px",
-                }}
-              ></div>
-            </div>
-
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B89B72] to-[#8B7355]"></div>
-
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
-              <div className="flex-1 text-center lg:text-left">
-                <h3
-                  className="text-xl lg:text-2xl tracking-tight mb-2 text-[#F8F6F0]"
-                  style={{ fontWeight: 600 }}
-                >
-                  Faça Parte da Nossa História de Sucesso
-                </h3>
-                <p className="text-[#CBD5E1] text-sm mb-4 lg:mb-0">
-                  Junte-se aos nossos clientes satisfeitos e tenha o melhor
-                  atendimento jurídico.
-                </p>
-
-                <div className="flex flex-wrap gap-4 justify-center lg:justify-start mt-4">
-                  {[
-                    "98% de satisfação",
-                    "Plantão 24 horas",
-                    "Atendimento premium",
-                  ].map((feature, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-2 text-[#CBD5E1]"
-                    >
-                      <CheckCircle
-                        className="w-3.5 h-3.5 text-[#B89B72]"
-                        strokeWidth={3}
-                      />
-                      <span className="text-xs">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-                <a
-                  href={WHATSAPP_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                  if (typeof window !== "undefined" && (window as any).dataLayer) {
-                    (window as any).dataLayer.push({
-                      event: "whatsapp_click",
-                      button_location: "testimonials_section"
-                    });
-                  }
-                }}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#B89B72] to-[#8B7355] text-white hover:shadow-xl hover:-translate-y-0.5 transition-all whitespace-nowrap text-sm"
-                >
-                  <FaWhatsapp className="h-5 w-5" />
-                  <span style={{ fontWeight: 600 }}>Falar no WhatsApp</span>
-                </a>
-
-                <a
-                  href="tel:+5562996421788"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 border border-[#B89B72]/30 text-[#F8F6F0] hover:bg-white/20 transition-all backdrop-blur-sm whitespace-nowrap text-sm"
-                >
-                  <Phone className="h-4 w-4" />
-                  <span style={{ fontWeight: 600 }}>(62) 99642-1788</span>
-                </a>
-              </div>
-            </div>
-
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#B89B72]/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#B89B72]/5 rounded-full blur-3xl"></div>
-          </div>
-        </motion.div>
+        <CTABanner
+          title="Faça Parte da Nossa História de Sucesso"
+          subtitle="Junte-se aos nossos clientes satisfeitos e tenha o melhor atendimento jurídico."
+          features={["98% de satisfação", "Plantão 24 horas", "Atendimento premium"]}
+          sectionName="testimonials"
+        />
       </div>
     </section>
   );

@@ -11,7 +11,8 @@ import {
 import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "motion/react";
 
-import { WHATSAPP_LINK } from "../../lib/constants";
+import { WHATSAPP_LINK, PHONE_NUMBER, PHONE_LINK, EMAIL, ADDRESS } from "../../lib/constants";
+import { trackWhatsAppClick } from "../../lib/analytics";
 
 export function ContactSection() {
   return (
@@ -80,29 +81,28 @@ export function ContactSection() {
               {
                 icon: Phone,
                 title: "Telefone",
-                content: "(62) 99642-1788",
+                content: PHONE_NUMBER,
                 subtitle: "Plantão 24 horas por dia",
-                link: "tel:+5562996421788",
+                link: PHONE_LINK,
               },
               {
                 icon: FaWhatsapp,
                 title: "WhatsApp",
-                content: "(62) 99642-1788",
+                content: PHONE_NUMBER,
                 subtitle: "Plantão 24 horas por dia",
                 link: WHATSAPP_LINK,
               },
               {
                 icon: Mail,
                 title: "E-mail",
-                content: "wapsouza@gmail.com",
+                content: EMAIL,
                 subtitle: "Resposta em até 24 horas",
-                link: "mailto:wapsouza@gmail.com",
+                link: `mailto:${EMAIL}`,
               },
               {
                 icon: Scale,
                 title: "Endereço",
-                content:
-                  "Av Eng. Atílio Correia lima, Qd 108 Lt 11, Cidade Jardim, Goiânia - GO, 74425-030",
+                content: ADDRESS,
                 subtitle: "Atendimento presencial e online em todo Brasil",
                 link: null,
               },
@@ -233,6 +233,7 @@ export function ContactSection() {
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick("contact_section")}
                   className="block w-full text-center px-8 py-4 bg-gradient-to-r from-[#B89B72] to-[#8B7355] text-white hover:shadow-2xl hover:-translate-y-0.5 transition-all mb-4"
                 >
                   <div className="flex items-center justify-center gap-2">
@@ -242,7 +243,7 @@ export function ContactSection() {
                 </a>
 
                 <a
-                  href="tel:+5562996421788"
+                  href={PHONE_LINK}
                   className="block w-full text-center px-8 py-4 bg-white/10 border border-[#B89B72]/30 text-[#F8F6F0] hover:bg-white/20 transition-all backdrop-blur-sm"
                 >
                   <div className="flex items-center justify-center gap-2">

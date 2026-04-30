@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { Scale, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
-import { MobileMenu } from "../../app/components/mobile-menu";
-import { WHATSAPP_LINK, WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from "../../lib/constants";
+import { MobileMenu } from "../../components/ui/mobile-menu";
+import { WHATSAPP_LINK, WHATSAPP_NUMBER, WHATSAPP_MESSAGE, PHONE_LINK, PHONE_NUMBER } from "../../lib/constants";
 
 export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,7 +17,6 @@ export function NavBar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
 
   return (
     <nav
@@ -91,12 +90,12 @@ export function NavBar() {
                 Ligue Agora
               </span>
               <a
-                href="tel:+5562996421788"
+                href={PHONE_LINK}
                 className="text-sm text-[#F8F6F0] tracking-tight hover:text-[#B89B72] transition-colors flex items-center gap-1.5"
                 style={{ fontWeight: 600 }}
               >
                 <Phone className="h-3.5 w-3.5" />
-                (62) 99642-1788
+                {PHONE_NUMBER}
               </a>
             </div>
             <a
