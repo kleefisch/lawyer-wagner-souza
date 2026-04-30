@@ -38,6 +38,14 @@ import { WHATSAPP_LINK } from "../../lib/constants";
 
 export function AreasSection() {
   const whatsappNumber = "5562996421788";
+  const trackWhatsAppClick = () => {
+    if (typeof window !== "undefined" && (window as any).dataLayer) {
+      (window as any).dataLayer.push({
+        event: "whatsapp_click",
+        button_location: "areas_section"
+      });
+    }
+  };
 
   return (
     <section id="areas" className="relative py-20 lg:py-32 overflow-hidden">
@@ -438,6 +446,7 @@ export function AreasSection() {
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={trackWhatsAppClick}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#B89B72] to-[#8B7355] text-white hover:shadow-xl hover:-translate-y-0.5 transition-all whitespace-nowrap text-sm"
                 >
                   <FaWhatsapp className="h-5 w-5" />

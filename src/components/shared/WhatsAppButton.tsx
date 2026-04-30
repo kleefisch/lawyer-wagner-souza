@@ -13,6 +13,15 @@ export function WhatsAppButton() {
   const whatsappMessage =
     "Olá, Dr. Wagner! Gostaria de tirar uma dúvida sobre Direito Tributário/Empresarial.";
 
+  const trackWhatsAppClick = () => {
+    if (typeof window !== "undefined" && (window as any).dataLayer) {
+      (window as any).dataLayer.push({
+        event: "whatsapp_click",
+        button_location: "floating_widget"
+      });
+    }
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       const now = new Date();
@@ -31,6 +40,7 @@ export function WhatsAppButton() {
         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={trackWhatsAppClick}
         className="fixed bottom-6 right-6 bg-[#25D366] text-white p-3 rounded-full shadow-2xl hover:bg-[#20BA5A] transition-all hover:scale-110 z-[70] group"
         aria-label="Falar no WhatsApp"
         initial={{ scale: 0, opacity: 0 }}
@@ -122,7 +132,10 @@ export function WhatsAppButton() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-lg hover:bg-[#20BA5A] transition-all"
-                onClick={() => setShowWhatsAppPopup(false)}
+                onClick={() => {
+                  trackWhatsAppClick();
+                  setShowWhatsAppPopup(false);
+                }}
               >
                 <FaWhatsapp className="h-5 w-5" />
                 <span style={{ fontWeight: 600 }}>Conversar</span>

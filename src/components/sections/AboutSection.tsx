@@ -12,6 +12,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 export function AboutSection() {
   const [stats, setStats] = useState({ years: 0, cases: 0, satisfaction: 0 });
@@ -75,10 +76,12 @@ export function AboutSection() {
             className="relative mx-auto lg:mx-0"
           >
             <div className="w-full max-w-[400px] h-[650px] rounded-sm relative overflow-hidden shadow-2xl">
-              <img
+              <Image
                 src="/wagner-about.png"
                 alt="Dr. Wagner Souza"
-                className="w-full h-full object-cover object-top scale-x-[-1]"
+                fill
+                className="object-cover object-top scale-x-[-1]"
+                sizes="(max-width: 1024px) 100vw, 400px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/40 via-transparent to-transparent"></div>
 

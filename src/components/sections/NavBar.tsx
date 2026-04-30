@@ -1,16 +1,22 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Scale, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 import { MobileMenu } from "../../app/components/mobile-menu";
 import { WHATSAPP_LINK } from "../../lib/constants";
 
-interface NavBarProps {
-  scrolled: boolean;
-}
+export function NavBar() {
+  const [scrolled, setScrolled] = useState(false);
 
-export function NavBar({ scrolled }: NavBarProps) {
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const whatsappNumber = "5562996421788";
   const whatsappMessage =
     "Olá Dr. Wagner, preciso de uma consulta jurídica. Podemos conversar sobre o meu caso?";

@@ -12,17 +12,30 @@ import { motion } from "motion/react";
 
 import { WHATSAPP_LINK } from "../../lib/constants";
 
-interface TestimonialsSectionProps {
-  isMobile: boolean;
-  testimonialPage: number;
-  setTestimonialPage: (value: number) => void;
-}
+import { useState, useEffect } from "react";
 
-export function TestimonialsSection({
-  isMobile,
-  testimonialPage,
-  setTestimonialPage,
-}: TestimonialsSectionProps) {
+export function TestimonialsSection() {
+  const [testimonialPage, setTestimonialPage] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+      setTestimonialPage(0); // Reset page when switching between mobile/desktop
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    const itemsPerPage = isMobile ? 1 : 3;
+    const totalPages = Math.ceil(9 / itemsPerPage); // 9 depoimentos totais
+    const interval = setInterval(() => {
+      setTestimonialPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
+    }, 20000);
+    return () => clearInterval(interval);
+  }, [isMobile]);
   const testimonials = [
     {
       name: "Maria Silva",
@@ -325,7 +338,15 @@ export function TestimonialsSection({
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#B89B72] to-[#8B7355] text-white hover:shadow-xl hover:-translate-y-0.5 transition-all whitespace-nowrap text-sm"
+                  onClick={() => {
+                  if (typeof window !== "undefined" && (window as any).dataLayer) {
+                    (window as any).dataLayer.push({
+                      event: "whatsapp_click",
+                      button_location: "testimonials_section"
+                    });
+                  }
+                }}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#B89B72] to-[#8B7355] text-white hover:shadow-xl hover:-translate-y-0.5 transition-all whitespace-nowrap text-sm"
                 >
                   <FaWhatsapp className="h-5 w-5" />
                   <span style={{ fontWeight: 600 }}>Falar no WhatsApp</span>

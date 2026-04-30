@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { FileText, X } from "lucide-react";
 
@@ -9,13 +9,44 @@ interface CookieBannerProps {
 }
 
 export function CookieBanner({ setActiveModal }: CookieBannerProps) {
-  const [showCookieBanner, setShowCookieBanner] = useState(true);
+  const [showCookieBanner, setShowCookieBanner] = useState(false);
   const [showCookiePreferences, setShowCookiePreferences] = useState(false);
   const [cookiePreferences, setCookiePreferences] = useState({
     necessary: true,
     analytics: true,
     marketing: true,
   });
+  const [consentGranted, setConsentGranted] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem("cookie_consent");
+    if (!consent) {
+      setShowCookieBanner(true);
+    } else {
+      const parsed = JSON.parse(consent);
+      setCookiePreferences(parsed);
+      if (parsed.analytics || parsed.marketing) {
+        setConsentGranted(true);
+      }
+    }
+  }, []);
+
+  const handleAcceptAll = () => {
+    const prefs = { necessary: true, analytics: true, marketing: true };
+    localStorage.setItem("cookie_consent", JSON.stringify(prefs));
+    setCookiePreferences(prefs);
+    setConsentGranted(true);
+    setShowCookieBanner(false);
+  };
+
+  const handleSavePreferences = () => {
+    localStorage.setItem("cookie_consent", JSON.stringify(cookiePreferences));
+    if (cookiePreferences.analytics || cookiePreferences.marketing) {
+      setConsentGranted(true);
+    }
+    setShowCookiePreferences(false);
+    setShowCookieBanner(false);
+  };
 
   return (
     <>
@@ -60,7 +91,7 @@ export function CookieBanner({ setActiveModal }: CookieBannerProps) {
                   Editar Preferências
                 </button>
                 <button
-                  onClick={() => setShowCookieBanner(false)}
+                  onClick={handleAcceptAll}
                   className="flex-1 md:flex-none px-6 py-2 bg-gradient-to-r from-[#B89B72] to-[#8B7355] text-white text-sm hover:shadow-xl transition-all cursor-pointer"
                 >
                   Aceitar
@@ -193,10 +224,7 @@ export function CookieBanner({ setActiveModal }: CookieBannerProps) {
 
                 <div className="flex gap-3">
                   <button
-                    onClick={() => {
-                      setShowCookiePreferences(false);
-                      setShowCookieBanner(false);
-                    }}
+                    onClick={handleSavePreferences}
                     className="flex-1 px-6 py-3 bg-gradient-to-r from-[#B89B72] to-[#8B7355] text-white hover:shadow-xl transition-all cursor-pointer"
                   >
                     <span style={{ fontWeight: 600 }}>Salvar Preferências</span>
@@ -207,6 +235,29 @@ export function CookieBanner({ setActiveModal }: CookieBannerProps) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Google Tag Manager (Conditional) */}
+      {consentGranted && (
+        <>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-XXXXXXX');`, // TROQUE GTM-XXXXXXX
+            }}
+          />
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" // TROQUE
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        </>
+      )}
     </>
   );
 }

@@ -3,10 +3,19 @@
 import { ChevronRight, CheckCircle, Clock, Scale, Star } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 import { WHATSAPP_LINK } from "../../lib/constants";
 
 export function HeroSection() {
+  const trackWhatsAppClick = () => {
+    if (typeof window !== "undefined" && (window as any).dataLayer) {
+      (window as any).dataLayer.push({
+        event: "whatsapp_click",
+        button_location: "hero_section"
+      });
+    }
+  };
   return (
     <section className="bg-[#0F172A] pt-32 pb-20 lg:pt-40 lg:pb-32 relative overflow-hidden">
       {/* Background Pattern */}
@@ -69,6 +78,7 @@ export function HeroSection() {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={trackWhatsAppClick}
                 className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#B89B72] to-[#8B7355] text-white px-8 py-4 text-sm tracking-tight transition-all shadow-lg shadow-[#B89B72]/20 hover:shadow-xl hover:shadow-[#B89B72]/30 hover:-translate-y-0.5"
               >
                 <FaWhatsapp className="h-6 w-6" />
@@ -95,10 +105,13 @@ export function HeroSection() {
             className="relative"
           >
             <div className="aspect-[4/5] rounded-sm relative overflow-hidden shadow-2xl bg-gradient-to-br from-[#0F172A] to-[#1E293B]">
-              <img
+              <Image
                 src="/wagner-hero-1.png"
                 alt="Advogado Profissional"
-                className="w-full h-full object-contain"
+                fill
+                priority
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-transparent"></div>
 

@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "../styles/index.css";
 
+const inter = Inter({ subsets: ["latin"], display: "swap" });
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://seusite.com.br"),
   title: "Wagner Souza | Advogado Especialista em São Paulo",
   description:
     "Escritório de advocacia focado em resultados rápidos, seguros e eficientes para você e sua empresa. Agende sua consultoria.",
@@ -13,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "Wagner Souza Advocacia",
     images: [
       {
-        url: "/wagner-hero-1.webp",
+        url: "/wagner-hero-1.png",
         width: 1200,
         height: 630,
       },
@@ -35,28 +39,30 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        {/* Google Tag Manager */}
+      </head>
+      <body className={inter.className}>
+
         <script
+          type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-XXXXXXX');`, // TROQUE GTM-XXXXXXX
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LegalService",
+              "name": "Wagner Souza Advocacia",
+              "image": "https://seusite.com.br/wagner-hero-1.png",
+              "description": "Escritório de advocacia focado em resultados rápidos, seguros e eficientes para você e sua empresa.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Endereço do Escritório",
+                "addressLocality": "Goiânia",
+                "addressRegion": "GO",
+                "addressCountry": "BR"
+              },
+              "telephone": "+5562996421788",
+              "url": "https://seusite.com.br"
+            })
           }}
         />
-      </head>
-      <body>
-        {/* Anti-Flicker ou GTM non-script fallback */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" // TROQUE
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-
         {children}
       </body>
     </html>
