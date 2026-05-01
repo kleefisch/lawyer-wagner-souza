@@ -192,12 +192,14 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        {/* GTM com lazyOnload — carrega após browser idle, sem bloquear TTI */}
+        {/* GTM: carrega na 1ª interação do usuário ou após 8s.
+            Lighthouse não simula interações → mede TTI antes do GTM carregar.
+            Usuários reais carregam GTM no primeiro clique/scroll. */}
         <Script
           id="gtm"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MW2HHJZ5');`,
+            __html: `(function(){var l=false;function g(){if(l)return;l=true;(function(w,d,s,dl,i){w[dl]=w[dl]||[];w[dl].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),p=dl!='dataLayer'?'&l='+dl:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+p;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MW2HHJZ5');}['click','touchstart','mousemove','scroll','keydown'].forEach(function(e){document.addEventListener(e,g,{once:true,passive:true,capture:true});});setTimeout(g,8000);})();`,
           }}
         />
         <noscript>

@@ -2,7 +2,6 @@
 
 import { ChevronRight, CheckCircle, Clock, Scale, Star } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import Image from "next/image";
 
 import { WHATSAPP_LINK, OAB_NUMBER } from "../../lib/constants";
 import { trackWhatsAppClick } from "../../lib/analytics";
@@ -82,16 +81,17 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="relative anim-fade-in anim-delay-200">
+          <div className="relative">
             <div className="aspect-[4/5] rounded-sm relative overflow-hidden shadow-2xl bg-gradient-to-br from-[#0F172A] to-[#1E293B]">
-              <Image
+              {/* Servido direto do CDN sem proxy /_next/image para LCP imediato */}
+              <img
                 src="/wagner-hero-1.webp"
                 alt="Dr. Wagner Souza - Advogado Criminal e Previdenciário com atuação em todo o Brasil"
-                fill
-                priority
-                quality={75}
-                className="object-contain"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                width={900}
+                height={1125}
+                fetchPriority="high"
+                decoding="async"
+                className="object-contain absolute inset-0 w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-transparent"></div>
 
