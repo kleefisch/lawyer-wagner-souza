@@ -3,6 +3,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { Check, LucideIcon, Eye, X } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa"
+import { trackWhatsAppClick } from "../../lib/analytics"
 
 interface SpecialtyCardProps {
   icon: LucideIcon
@@ -26,12 +27,9 @@ export function SpecialtyCard({
   delay = 0
 }: SpecialtyCardProps) {
   const [showServices, setShowServices] = useState(false)
-
-  const handleWhatsApp = () => {
-    const areaText = area === "Previdenciário" ? "Área Previdenciária" : `Área ${area}`
-    const message = `Olá Dr. Wagner, preciso de uma consulta jurídica sobre ${title} (${areaText}). Podemos conversar sobre o meu caso?`
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank')
-  }
+  const areaText = area === "Previdenciário" ? "Área Previdenciária" : `Área ${area}`
+  const message = `Olá Dr. Wagner, preciso de uma consulta jurídica sobre ${title} (${areaText}). Podemos conversar sobre o meu caso?`
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
 
   return (
     <>
@@ -86,14 +84,17 @@ export function SpecialtyCard({
                 <span className="hidden sm:inline" style={{ fontWeight: 500 }}>Ver Serviços</span>
                 <span className="sm:hidden" style={{ fontWeight: 500 }}>Serviços</span>
               </button>
-              <button
-                onClick={handleWhatsApp}
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("areas_card")}
                 className="px-4 py-3 bg-gradient-to-r from-[#25D366] to-[#20BA5A] text-white hover:shadow-xl hover:scale-105 transition-all"
                 aria-label="WhatsApp"
                 title="Falar no WhatsApp"
               >
                 <FaWhatsapp className="h-5 w-5" />
-              </button>
+              </a>
             </div>
           </div>
 
@@ -180,13 +181,16 @@ export function SpecialtyCard({
                 {/* Bottom CTA */}
                 <div className="mt-8">
                   <div className="h-px bg-gradient-to-r from-transparent via-[#B89B72]/50 to-transparent mb-6"></div>
-                  <button
-                    onClick={handleWhatsApp}
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackWhatsAppClick("areas_services_modal")}
                     className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#B89B72] to-[#8B7355] text-white px-6 py-4 text-sm tracking-tight hover:shadow-xl hover:-translate-y-0.5 transition-all"
                   >
                     <FaWhatsapp className="h-5 w-5" />
                     <span style={{ fontWeight: 600 }}>Consultar Advogado no WhatsApp</span>
-                  </button>
+                  </a>
                 </div>
               </div>
             </motion.div>
